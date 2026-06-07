@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Fin de Ciclo | Colegio Tlahtoani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+
+    <style>
+        :root {
+            --rojo: #b5231a;
+            --rojo-oscuro: #7b1a10;
+            --rojo-claro: rgba(181,35,26,0.15);
+            --dorado: #f5c842;
+            --dorado-claro: #ffe98a;
+            --crema: #fdf3dc;
+            --negro: #0c0704;
+            --negro-card: #160e08;
+            --borde: rgba(245,200,66,0.25);
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--negro);
+            color: var(--crema);
+            overflow-x: hidden;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* ── STRIPES BG ── */
+        .stripes-bg {
+            position: fixed; inset: 0; z-index: 0; pointer-events: none;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(139,0,0,0.07) 0px, rgba(139,0,0,0.07) 20px,
+                transparent 20px, transparent 40px
+            );
+        }
+
+        /* ── SPOTLIGHT ── */
+        .spotlight {
+            position: fixed; top: -50%; left: 40%;
+            width: 320px; height: 180vh;
+            background: radial-gradient(ellipse at top, rgba(245,200,66,0.07) 0%, transparent 60%);
+            pointer-events: none; z-index: 0;
+            animation: sway 8s ease-in-out infinite alternate;
+        }
+        @keyframes sway { from { left: 30%; } to { left: 60%; } }
+
+        /* ── CONFETTI ── */
+        .confetti-wrap {
+            position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+        }
+        .cdot {
+            position: absolute; border-radius: 50%;
+            animation: cfall linear infinite; opacity: 0;
+        }
+        @keyframes cfall {
+            0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0.9; }
+            100% { transform: translateY(110vh)  rotate(720deg); opacity: 0; }
+        }
+
+        /* ── PORTADA ── */
+        .portada {
+            position: relative; z-index: 2;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 70px 24px 60px;
+            gap: 18px;
+            background: radial-gradient(ellipse at top, #2a0800 0%, #0c0704 65%);
+            border-bottom: 2px solid var(--dorado);
+        }
+
+        .badge {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--dorado);
+            border: 1px solid rgba(245,200,66,0.35);
+            padding: 6px 24px;
+            border-radius: 2px;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .logo-wrap { animation: fadeUp 0.8s 0.1s ease both; }
+        .festival-logo {
+            max-width: 180px;
+            filter: drop-shadow(0 0 18px rgba(245,200,66,0.65));
+        }
+
+        .pretitle {
+            font-style: italic;
+            font-size: 1rem;
+            color: rgba(253,243,220,0.6);
+            letter-spacing: 2px;
+            animation: fadeUp 0.9s 0.2s ease both;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 0.95;
+            color: var(--dorado);
+            text-shadow: 3px 3px 0 var(--rojo-oscuro), 0 0 40px rgba(245,200,66,0.3);
+            animation: fadeUp 1s 0.3s ease both;
+        }
+        .hero-title .sub {
+            display: block;
+            font-size: clamp(1.4rem, 4.5vw, 2.4rem);
+            font-style: italic;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 0 var(--rojo-oscuro);
+            margin-top: 6px;
+        }
+
+        .div-row {
+            display: flex; align-items: center; gap: 12px;
+            width: 100%; max-width: 360px;
+            animation: fadeUp 1s 0.4s ease both;
+        }
+        .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--dorado), transparent); }
+
+        .hero-date {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            animation: fadeUp 1s 0.5s ease both;
+        }
+
+        .btn-map {
+            background: var(--dorado);
+            color: var(--negro);
+            padding: 13px 32px;
+            border-radius: 3px;
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex; gap: 8px; align-items: center;
+            box-shadow: 0 0 24px rgba(245,200,66,0.35);
+            transition: 0.3s;
+            animation: fadeUp 1s 0.6s ease both;
+            border: none; cursor: pointer;
+        }
+        .btn-map:hover { transform: scale(1.06); box-shadow: 0 0 36px rgba(245,200,66,0.55); }
+
+        /* ── RIBBON ── */
+        .ribbon {
+            position: relative; z-index: 2;
+            background: var(--rojo);
+            border-top: 3px solid var(--dorado);
+            border-bottom: 3px solid var(--dorado);
+            padding: 14px 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--crema);
+        }
+
+        /* ── SECTION ── */
+        .section {
+            position: relative; z-index: 2;
+            padding: 55px 20px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            color: var(--dorado);
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 0 0 14px rgba(245,200,66,0.25);
+        }
+        .section-sub {
+            text-align: center;
+            font-style: italic;
+            color: rgba(253,243,220,0.55);
+            margin-bottom: 35px;
+            font-size: 1rem;
+        }
+
+        .sep {
+            display: flex; align-items: center; gap: 14px;
+            max-width: 500px; margin: 0 auto 40px;
+        }
+        .sep-line { flex:1; border-top: 1px dashed rgba(245,200,66,0.3); }
+        .sep span { color: var(--dorado); font-size: 1.3rem; }
+
+        /* ── EVENTO BUTTONS ── */
+        .evento-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            border: 1px solid var(--borde);
+            border-radius: 4px;
+            background: rgba(253,243,220,0.04);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            color: var(--crema);
+        }
+        .evento-btn::after {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute; right: 18px;
+            color: var(--dorado);
+            transition: 0.3s;
+            font-size: 0.85rem;
+        }
+        .evento-btn:hover {
+            background: rgba(245,200,66,0.08);
+            border-color: rgba(245,200,66,0.5);
+            transform: translateX(4px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+        }
+        .evento-btn:hover::after { transform: translateX(4px); }
+
+        .evento-icono {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin-right: 16px; flex-shrink: 0;
+            color: var(--negro);
+            font-size: 1.1rem;
+        }
+        .evento-contenido h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+        .evento-hora {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+        .evento-desc { font-size: 0.88rem; color: rgba(253,243,220,0.55); }
+
+        /* ── MAPA ── */
+        .mapa-wrap {
+            border: 2px solid var(--borde);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+            height: 280px;
+        }
+        .mapa-wrap iframe { width:100%; height:100%; border:none; }
+
+        /* ── ACCESS STEPS ── */
+        .steps-grid {
+            display: flex; flex-direction: column; gap: 16px;
+        }
+        .step-card {
+            background: rgba(253,243,220,0.04);
+            border: 1px solid var(--borde);
+            border-left: 4px solid var(--rojo);
+            border-radius: 4px;
+            padding: 20px 24px;
+            display: flex; align-items: flex-start; gap: 16px;
+            transition: 0.3s;
+        }
+        .step-card:hover { background: rgba(245,200,66,0.06); transform: translateX(4px); }
+        .step-num {
+            min-width: 38px; height: 38px;
+            background: linear-gradient(135deg, var(--rojo), var(--dorado));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; font-size: 1.1rem;
+            color: var(--negro);
+            flex-shrink: 0;
+        }
+        .step-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--dorado);
+            margin-bottom: 4px;
+        }
+        .step-card p { font-size: 0.95rem; color: rgba(253,243,220,0.7); }
+
+        @media(min-width: 640px) {
+            .steps-grid { flex-direction: row; }
+            .step-card { flex: 1; }
+        }
+
+        /* ── CONTACTO ── */
+        .contact-grid {
+            display: flex; flex-wrap: wrap;
+            gap: 14px; justify-content: center;
+        }
+        .contact-link {
+            display: flex; align-items: center; gap: 10px;
+            padding: 12px 22px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #fff;
+            transition: 0.3s;
+            min-width: 160px; justify-content: center;
+        }
+        .contact-link:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .cl-fb   { background: #1877F2; }
+        .cl-wa   { background: #25D366; }
+        .cl-ig   { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); }
+        .cl-web  { background: var(--rojo); border: 1px solid var(--dorado); }
+
+        /* ── PÁGINAS DE EVENTO ── */
+        .pagina-evento {
+            display: none;
+            position: fixed; inset: 0;
+            background: var(--negro);
+            z-index: 1000;
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+        .pag-inner { max-width: 720px; margin: 0 auto; }
+        .btn-cerrar {
+            position: fixed; top: 16px; right: 16px;
+            background: var(--rojo);
+            color: white; width: 42px; height: 42px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 1.2rem;
+            border: 2px solid var(--dorado);
+            z-index: 1001;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+        .btn-cerrar:hover { transform: scale(1.1); }
+        .pag-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            color: var(--dorado);
+            text-align: center;
+            margin: 40px 0 10px;
+            text-shadow: 2px 2px 0 var(--rojo-oscuro);
+        }
+        .pag-hora {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .pag-img {
+            width: 100%; border-radius: 4px;
+            border: 2px solid var(--borde);
+            margin-bottom: 24px;
+            max-height: 320px; object-fit: cover;
+        }
+        .pag-destacado {
+            background: rgba(245,200,66,0.07);
+            border: 1px solid var(--borde);
+            border-left: 4px solid var(--dorado);
+            border-radius: 4px;
+            padding: 22px 24px;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(253,243,220,0.85);
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            position: relative; z-index: 2;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--borde);
+        }
+        .footer p { color: rgba(253,243,220,0.45); font-size: 0.9rem; }
+
+        /* ── ANIM ── */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="stripes-bg"></div>
+<div class="spotlight"></div>
+<div class="confetti-wrap" id="confetti"></div>
+
+<!-- PORTADA -->
+<header class="portada">
+    <div class="badge">✦ Colegio Tlahtoani ✦</div>
+
+    <div class="logo-wrap">
+        <img src="logoblanco.png" class="festival-logo" alt="Logo Tlahtoani">
+    </div>
+
+    <p class="pretitle">presenta</p>
+
+    <!-- ILUSTRACIÓN CARPA -->
+    <div style="width:100%; max-width:420px; border-radius:10px; overflow:hidden; border:2px solid rgba(245,200,66,0.4); filter: drop-shadow(0 0 28px rgba(245,200,66,0.45));" data-aos="fade-up" data-aos-delay="200">
+      <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show" style="width:100%; display:block;">
+    </div>
+    <!-- SVG FALLBACK (unused) -->
+    <div style="display:none"><svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+        <!-- SKY GRADIENT -->
+        <defs>
+          <radialGradient id="skyg" cx="50%" cy="0%" r="80%">
+            <stop offset="0%" stop-color="#2a0800"/>
+            <stop offset="100%" stop-color="#0c0704"/>
+          </radialGradient>
+          <radialGradient id="spotL" cx="30%" cy="0%" r="60%">
+            <stop offset="0%" stop-color="rgba(245,200,66,0.18)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <radialGradient id="spotR" cx="70%" cy="0%" r="60%">
+            <stop offset="0%" stop-color="rgba(245,200,66,0.12)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+          <linearGradient id="tentg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#d4a017"/>
+            <stop offset="100%" stop-color="#8b6010"/>
+          </linearGradient>
+          <linearGradient id="redg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#c0392b"/>
+            <stop offset="100%" stop-color="#7b1a10"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <!-- BG -->
+        <rect width="480" height="260" fill="url(#skyg)"/>
+        <rect width="480" height="260" fill="url(#spotL)" opacity="0.9"/>
+        <rect width="480" height="260" fill="url(#spotR)" opacity="0.9"/>
+
+        <!-- STARS -->
+        <g fill="white" opacity="0.85" filter="url(#glow)">
+          <circle cx="30"  cy="18"  r="1.2"/><circle cx="60"  cy="8"   r="0.9"/>
+          <circle cx="100" cy="22"  r="1.4"/><circle cx="140" cy="10"  r="1"/>
+          <circle cx="180" cy="28"  r="0.8"/><circle cx="220" cy="12"  r="1.3"/>
+          <circle cx="260" cy="25"  r="0.9"/><circle cx="300" cy="8"   r="1.1"/>
+          <circle cx="340" cy="20"  r="1.5"/><circle cx="380" cy="14"  r="0.8"/>
+          <circle cx="420" cy="22"  r="1.2"/><circle cx="455" cy="10"  r="1"/>
+          <circle cx="50"  cy="42"  r="0.7"/><circle cx="160" cy="45"  r="1"/>
+          <circle cx="310" cy="38"  r="0.8"/><circle cx="440" cy="40"  r="1.1"/>
+          <circle cx="75"  cy="55"  r="0.6"/><circle cx="395" cy="50"  r="0.7"/>
+        </g>
+
+        <!-- BUNTING FLAGS top -->
+        <polyline points="40,30 480,15" stroke="rgba(245,200,66,0.3)" stroke-width="0.6" fill="none"/>
+        <g opacity="0.75">
+          <polygon points="80,32 88,32 84,44"  fill="#c0392b"/>
+          <polygon points="130,28 138,28 134,40" fill="#f5c842"/>
+          <polygon points="180,25 188,25 184,37" fill="#c0392b"/>
+          <polygon points="230,22 238,22 234,34" fill="#f5c842"/>
+          <polygon points="280,20 288,20 284,32" fill="#c0392b"/>
+          <polygon points="330,18 338,18 334,30" fill="#f5c842"/>
+          <polygon points="380,17 388,17 384,29" fill="#c0392b"/>
+          <polygon points="430,16 438,16 434,28" fill="#f5c842"/>
+        </g>
+
+        <!-- POLE CENTER -->
+        <rect x="236" y="40" width="8" height="120" fill="#c8a030" rx="2"/>
+        <!-- FLAG ON TOP -->
+        <polygon points="244,40 274,52 244,64" fill="#c0392b" opacity="0.95"/>
+        <polygon points="244,40 274,52 244,64" fill="none" stroke="#f5c842" stroke-width="0.8"/>
+
+        <!-- TENT STRIPES (alternating red/gold) -->
+        <!-- Left half -->
+        <polygon points="240,42 60,200 160,200"  fill="url(#redg)"  opacity="0.97"/>
+        <polygon points="240,42 160,200 200,200" fill="url(#tentg)" opacity="0.97"/>
+        <polygon points="240,42 200,200 220,200" fill="url(#redg)"  opacity="0.97"/>
+        <!-- Right half -->
+        <polygon points="240,42 320,200 420,200" fill="url(#redg)"  opacity="0.97"/>
+        <polygon points="240,42 280,200 320,200" fill="url(#tentg)" opacity="0.97"/>
+        <polygon points="240,42 260,200 280,200" fill="url(#redg)"  opacity="0.97"/>
+
+        <!-- TENT OUTLINE -->
+        <polyline points="60,200 240,42 420,200" fill="none" stroke="#f5c842" stroke-width="1.5" opacity="0.6"/>
+
+        <!-- SCALLOP BORDER -->
+        <g fill="#c0392b" stroke="#f5c842" stroke-width="0.8">
+          <ellipse cx="80"  cy="199" rx="22" ry="10"/>
+          <ellipse cx="124" cy="199" rx="22" ry="10"/>
+          <ellipse cx="168" cy="199" rx="22" ry="10"/>
+          <ellipse cx="212" cy="199" rx="22" ry="10"/>
+          <ellipse cx="256" cy="199" rx="22" ry="10"/>
+          <ellipse cx="300" cy="199" rx="22" ry="10"/>
+          <ellipse cx="344" cy="199" rx="22" ry="10"/>
+          <ellipse cx="388" cy="199" rx="22" ry="10"/>
+        </g>
+
+        <!-- ENTRANCE CURTAIN -->
+        <rect x="188" y="155" width="104" height="50" fill="#7b1a10" rx="2"/>
+        <path d="M188,155 Q216,175 240,155 Q264,175 292,155 L292,205 L188,205 Z" fill="#c0392b"/>
+        <rect x="236" y="155" width="8" height="50" fill="#f5c842" opacity="0.4"/>
+
+        <!-- LANTERNS -->
+        <g filter="url(#glow)">
+          <!-- Left lantern -->
+          <rect x="110" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
+          <rect x="118" y="144" width="2" height="6" fill="#c8a030"/>
+          <line x1="119" y1="144" x2="119" y2="135" stroke="#c8a030" stroke-width="1"/>
+          <!-- Right lantern -->
+          <rect x="352" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
+          <rect x="360" y="144" width="2" height="6" fill="#c8a030"/>
+          <line x1="361" y1="144" x2="361" y2="135" stroke="#c8a030" stroke-width="1"/>
+        </g>
+
+        <!-- SIDE POLES -->
+        <rect x="57"  y="150" width="6" height="60" fill="#c8a030" rx="1"/>
+        <rect x="417" y="150" width="6" height="60" fill="#c8a030" rx="1"/>
+
+        <!-- GROUND LINE -->
+        <rect x="0" y="210" width="480" height="50" fill="#0c0704"/>
+        <rect x="0" y="210" width="480" height="2" fill="#f5c842" opacity="0.3"/>
+
+        <!-- LIGHTS ON TENT EDGE (left) -->
+        <g fill="#ffe98a" filter="url(#glow)" opacity="0.9">
+          <circle cx="90"  cy="195" r="3"/>
+          <circle cx="135" cy="190" r="3"/>
+          <circle cx="180" cy="185" r="3"/>
+          <circle cx="210" cy="180" r="3"/>
+          <circle cx="270" cy="180" r="3"/>
+          <circle cx="300" cy="185" r="3"/>
+          <circle cx="345" cy="190" r="3"/>
+          <circle cx="390" cy="195" r="3"/>
+        </g>
+
+        <!-- STAR BURST TOP POLE -->
+        <g transform="translate(240,38)" fill="#f5c842" filter="url(#glow)">
+          <polygon points="0,-10 2,-4 8,-4 3,0 5,6 0,3 -5,6 -3,0 -8,-4 -2,-4" opacity="0.95"/>
+        </g>
+
+        <!-- BANNER TEXT -->
+        <rect x="130" y="215" width="220" height="28" rx="3" fill="#b5231a" stroke="#f5c842" stroke-width="1.2"/>
+        <text x="240" y="234" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#f5c842" letter-spacing="2">EL GRAN SHOW</text>
+      </svg></div>
+
+    <h1 class="hero-title">
+        El Gran Show
+        <span class="sub">Festival de Fin de Ciclo</span>
+    </h1>
+
+    <div class="div-row">
+        <div class="div-line"></div>
+        <i class="fas fa-hat-wizard" style="color:var(--dorado);"></i>
+        <div class="div-line"></div>
+    </div>
+
+    <p class="hero-date">🗓 25 de Junio</p>
+
+    <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-map">
+        <i class="fas fa-map-marker-alt"></i> Ver Ubicación
+    </a>
+</header>
+
+<!-- RIBBON -->
+<div class="ribbon">✦ &nbsp; ¡Organiza tu tiempo — el show debe continuar! &nbsp; ✦</div>
+
+<!-- EVENTOS -->
+<section class="section" data-aos="fade-up">
+    <h2 class="section-title">Programación del Gran Show</h2>
+    <p class="section-sub">Dos actos que no te puedes perder</p>
+
+    <!-- Acto Académico -->
+    <button class="evento-btn" onclick="mostrarPagina('acto-academico')">
+        <div class="evento-icono" style="background:var(--dorado);">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="evento-contenido">
+            <h3>Acto Académico</h3>
+            <p class="evento-hora" style="color:var(--dorado);">8:00 a.m.</p>
+            <p class="evento-desc">Toca para ver detalles del acto ✨</p>
+        </div>
+    </button>
+
+    <!-- Festival Primaria -->
+    <button class="evento-btn" onclick="mostrarPagina('festival-primaria')">
+        <div class="evento-icono" style="background:var(--rojo);">
+            <i class="fas fa-theater-masks"></i>
+        </div>
+        <div class="evento-contenido">
+            <h3>Festival Primaria</h3>
+            <p class="evento-hora" style="color:var(--rojo);">2:30 p.m.</p>
+            <p class="evento-desc">Toca para ver detalles del festival 🎭</p>
+        </div>
+    </button>
+
+    <!-- Ubicación -->
+    <button class="evento-btn" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
+        <div class="evento-icono" style="background:var(--dorado-claro); color:var(--negro);">
+            <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="evento-contenido">
+            <h3>Lugar del Evento</h3>
+            <p class="evento-hora" style="color:var(--dorado);">Ver en Google Maps</p>
+            <p class="evento-desc">Toca para abrir la ubicación 📍</p>
+        </div>
+    </button>
+
+    <!-- Mapa -->
+    <div class="mapa-wrap" data-aos="fade-up" data-aos-delay="100">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.715061767188!2d-103.3848689242246!3d20.67378198087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3a95d7589d%3A0x528de490c092c4f1!2sCentro%20de%20Desarrollo%20Comunitario%20%2325%20DIF%20Guadalajara!5e0!3m2!1ses-419!2smx!4v1718331230848!5m2!1ses-419!2smx"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <div style="text-align:center; margin-top:14px;">
+        <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-map" style="text-decoration:none;">
+            <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
+        </a>
+    </div>
+</section>
+
+<!-- ACCESO -->
+<section class="section" data-aos="fade-up" style="padding-top:0;">
+    <div class="sep"><div class="sep-line"></div><span>🎟</span><div class="sep-line"></div></div>
+    <h2 class="section-title">Acceso al Festival</h2>
+    <p class="section-sub">Información para ingresar al evento</p>
+
+    <div class="steps-grid">
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-num">1</div>
+            <div>
+                <h3>Recibe tus boletos</h3>
+                <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--dorado);">$100 pesos</strong>.</p>
+            </div>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-num">2</div>
+            <div>
+                <h3>Guarda tus boletos</h3>
+                <p>Consérvalos y llévalos el día del evento.</p>
+            </div>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-num">3</div>
+            <div>
+                <h3>Preséntalo en la entrada</h3>
+                <p>Muestra tu boleto en la entrada para ingresar.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section" data-aos="fade-up" style="padding-top:0;">
+    <div class="sep"><div class="sep-line"></div><span>🎪</span><div class="sep-line"></div></div>
+    <h2 class="section-title">Síguenos</h2>
+    <p class="section-sub">Encuentra más información en nuestras redes</p>
+
+    <div class="contact-grid">
+        <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://chatwith.io/es/s/63b7348567162" target="_blank" class="contact-link cl-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/colegiotlahtoanii/" target="_blank" class="contact-link cl-ig">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://colegiotlahtoani.com/" target="_blank" class="contact-link cl-web">
+            <i class="fas fa-globe"></i> Página Web
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="sep" style="max-width:280px; margin: 0 auto 16px;">
+        <div class="sep-line"></div>
+        <span style="font-size:1rem;">🎩</span>
+        <div class="sep-line"></div>
+    </div>
+    <p>Colegio Tlahtoani · Festival Fin de Ciclo 2025</p>
+    <p style="margin-top:6px;">¡Los esperamos con todo el corazón! 🎪✨</p>
+</footer>
+
+<!-- ══ PÁGINAS DE EVENTO ══ -->
+
+<!-- Acto Académico -->
+<div id="pagina-acto-academico" class="pagina-evento">
+    <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
+    <div class="pag-inner">
+        <h2 class="pag-titulo">Acto Académico</h2>
+        <p class="pag-hora">✨ 8:00 a.m.</p>
+        <img src="acto.jpg" alt="Acto Académico" class="pag-img" onerror="this.style.display='none'">
+        <div class="pag-destacado">
+            🎓 <strong>Acto Académico · 8:00 a.m.</strong><br><br>
+            Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar. ¡Acompáñanos en este momento tan especial para toda la comunidad Tlahtoani!
+        </div>
+    </div>
+</div>
+
+<!-- Festival Primaria -->
+<div id="pagina-festival-primaria" class="pagina-evento">
+    <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
+    <div class="pag-inner">
+        <h2 class="pag-titulo">Festival Primaria</h2>
+        <p class="pag-hora">🎭 2:30 p.m.</p>
+        <img src="festival.jpg" alt="Festival Primaria" class="pag-img" onerror="this.style.display='none'">
+        <div class="pag-destacado">
+            🎪 <strong>Festival Primaria · 2:30 p.m.</strong><br><br>
+            ¡El escenario se convierte en un Gran Show! Los alumnos de primaria brillarán con sus presentaciones artísticas: baile, música, actuación y mucho talento. Un espectáculo vibrante para cerrar el ciclo escolar con todo lo que tenemos dentro. ¡Que el show continúe!
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    // AOS
+    AOS.init({ once: true, duration: 750, easing: 'ease-out-back' });
+
+    // Confetti dorado + rojo
+    window.addEventListener('load', () => {
+        confetti({
+            particleCount: 120,
+            spread: 70,
+            origin: { y: 0.55 },
+            colors: ['#f5c842','#ffe98a','#b5231a','#fdf3dc','#7b1a10']
+        });
+    });
+
+    // Floating confetti dots
+    (function(){
+        const wrap = document.getElementById('confetti');
+        const colors = ['#f5c842','#b5231a','#fdf3dc','#ffe98a','#fff'];
+        for(let i=0; i<50; i++){
+            const d = document.createElement('div');
+            d.className = 'cdot';
+            const s = Math.random()*7+4;
+            d.style.cssText = `
+                width:${s}px; height:${s}px;
+                left:${Math.random()*100}vw;
+                background:${colors[Math.floor(Math.random()*colors.length)]};
+                animation-duration:${Math.random()*7+6}s;
+                animation-delay:${Math.random()*8}s;
+            `;
+            wrap.appendChild(d);
+        }
+    })();
+
+    // Navegación
+    function mostrarPagina(id) {
+        document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
+        const el = document.getElementById('pagina-' + id);
+        if(el){ el.style.display = 'block'; window.scrollTo(0,0); }
+    }
+    function ocultarPaginas() {
+        document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
+    }
+</script>
+</body>
+</html>
