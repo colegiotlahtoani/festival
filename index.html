@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
 
@@ -24,6 +25,14 @@
   --orange:#ff9f0a;
   --yellow:#ffd166;
   --dark-blue:#1e3a8a;
+  
+  /* Colores para boletos */
+  --naranja-boleto: #FF7F3F;
+  --verde-limon: #D2F959;
+  --azul-bajito: #89CFFD;
+  --morado-boleto: #B689FF;
+  --dark: #3A3845;
+  --amarillo-vivo: #FFEB3B;
 
   --shadow:0 16px 40px rgba(0,0,0,.10);
   --radius-xl:26px;
@@ -161,7 +170,7 @@ body{
 
 .menu-grid{display:grid;gap:20px;}
 @media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
-@media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:960px){.menu-grid{grid-template-columns:repeat(4,1fr);}}
 
 .day-card{
   background:white;
@@ -294,37 +303,120 @@ body{
   box-shadow:0 15px 30px rgba(10,132,255,.4);
 }
 
-.steps-grid{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+/* Sección de boletos - Estilo nuevo integrado */
+.tickets-section {
+  margin-top: 28px;
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.05);
 }
-.step-card{
-  background:white;
-  border-radius:var(--radius-xl);
-  padding:20px;
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-  box-shadow:var(--shadow);
-  transition:0.2s;
+
+.tickets-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
-.step-card:hover{transform:translateX(6px);}
-.step-num{
-  width:44px;height:44px;
-  background:linear-gradient(135deg,var(--orange),var(--yellow));
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  font-size:1.2rem;
-  flex-shrink:0;
-  color:#2d1a00;
+.tickets-header h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--naranja-boleto), var(--morado-boleto));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
 }
-.step-card h3{font-size:1rem;font-weight:800;margin-bottom:4px;}
-.step-card p{color:var(--muted);font-size:.85rem;}
-@media(min-width:640px){.steps-grid{flex-direction:row;}.step-card{flex:1;}}
+.tickets-header p {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.steps-container-boleto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.step-boleto {
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,.05);
+}
+.step-boleto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.1);
+}
+.step-boleto-1 { border-top: 5px solid var(--naranja-boleto); }
+.step-boleto-2 { border-top: 5px solid var(--verde-limon); }
+.step-boleto-3 { border-top: 5px solid var(--azul-bajito); }
+
+.step-number-boleto {
+  font-family: 'Fredoka One', cursive;
+  font-size: 3.5rem;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  opacity: 0.1;
+  line-height: 1;
+  color: var(--dark);
+}
+.step-icon-boleto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+.step-boleto-1 .step-icon-boleto { background: var(--naranja-boleto); color: white; }
+.step-boleto-2 .step-icon-boleto { background: var(--verde-limon); color: var(--dark); }
+.step-boleto-3 .step-icon-boleto { background: var(--azul-bajito); color: white; }
+.step-boleto h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+.step-boleto p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.important-section-boleto {
+  background: linear-gradient(135deg, #fff8e8, #fff0d8);
+  border-radius: 20px;
+  padding: 25px;
+  border-left: 6px solid var(--naranja-boleto);
+}
+.important-section-boleto h3 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--morado-boleto);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+.important-list-boleto {
+  list-style-type: none;
+  padding: 0;
+}
+.important-list-boleto li {
+  padding: 8px 0;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 600;
+}
+.important-list-boleto li::before {
+  content: "❗";
+  position: absolute;
+  left: 0;
+  color: var(--naranja-boleto);
+}
 
 .contact-grid{
   display:flex;
@@ -383,7 +475,7 @@ footer{
   border-top:1px solid rgba(0,0,0,.05);
 }
 
-/* PÁGINAS DE EVENTO MEJORADAS */
+/* Páginas de evento */
 .pagina-evento{
   display:none;
   position:fixed;
@@ -575,35 +667,47 @@ footer{
     </div>
   </section>
 
-  <!-- Acceso al Festival (steps) -->
-  <section class="section">
-    <div class="section-head">
-      <h2>🎟️ Acceso al Festival</h2>
+  <!-- NUEVA SECCIÓN: Boletos Digitales (estilo integrado) -->
+  <div class="tickets-section">
+    <div class="tickets-header">
+      <h2><i class="fas fa-ticket-alt"></i> ¡BOLETOS DIGITALES!</h2>
+      <p>Instrucciones para tu acceso al festival</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div>
-          <h3>Recibe tus boletos</h3>
-          <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--orange);">$100 pesos</strong>.</p>
-        </div>
+
+    <div class="steps-container-boleto">
+      <div class="step-boleto step-boleto-1">
+        <div class="step-number-boleto">1</div>
+        <div class="step-icon-boleto">📱</div>
+        <h3>Recibe tu boleto</h3>
+        <p>El colegio te enviará por WhatsApp un mensaje con tu boleto digital personalizado.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div>
-          <h3>Guarda tus boletos</h3>
-          <p>Consérvalos y llévalos el día del evento.</p>
-        </div>
+      
+      <div class="step-boleto step-boleto-2">
+        <div class="step-number-boleto">2</div>
+        <div class="step-icon-boleto">📲</div>
+        <h3>Prepáralo antes</h3>
+        <p>Necesitarás internet para abrir el enlace del boleto al llegar al evento.</p>
+        <p><strong>Recomendación:</strong> Abre el boleto antes de salir de casa.</p>
       </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Preséntalo en la entrada</h3>
-          <p>Muestra tu boleto en la entrada para ingresar.</p>
-        </div>
+      
+      <div class="step-boleto step-boleto-3">
+        <div class="step-number-boleto">3</div>
+        <div class="step-icon-boleto">🔍</div>
+        <h3>Escaneo y acceso</h3>
+        <p>Forma en fila y muestra el código QR en pantalla completa para que lo escanee la maestra.</p>
       </div>
     </div>
-  </section>
+    
+    <div class="important-section-boleto">
+      <h3>⚠️ Requisitos Importantes</h3>
+      <ul class="important-list-boleto">
+        <li><strong>Solo boletos digitales:</strong> No se aceptan impresos ni capturas</li>
+        <li><strong>Conexión activa:</strong> El boleto debe cargarse al momento</li>
+        <li><strong>Uso único:</strong> Cada boleto solo permite un acceso válido</li>
+        <li><strong>No compartir:</strong> El sistema detectará boletos ya utilizados</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Mapa embebido -->
   <section class="section">
@@ -640,7 +744,7 @@ footer{
   </footer>
 </div>
 
-<!-- PÁGINA: Acto Académico Primaria -->
+<!-- Páginas de evento -->
 <div id="pagina-acto-academico" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎓</div>
@@ -649,7 +753,7 @@ footer{
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica" onerror="this.src='https://via.placeholder.com/800x240?text=Acto+Académico'">
+      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica">
     </div>
     <div class="pag-content">
       <p><strong>✨ Un momento lleno de orgullo y emoción</strong></p><br>
@@ -665,7 +769,6 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
-<!-- PÁGINA: Acto Académico Kínder -->
 <div id="pagina-acto-academico-kinder" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎓🐻</div>
@@ -674,7 +777,7 @@ footer{
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia Kínder" onerror="this.src='https://via.placeholder.com/800x240?text=Acto+Kínder'">
+      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia Kínder">
     </div>
     <div class="pag-content">
       <p><strong>🌟 Un momento mágico para nuestros pequeños</strong></p><br>
@@ -690,7 +793,6 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
-<!-- PÁGINA: Festival Primaria -->
 <div id="pagina-festival-primaria" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎭</div>
@@ -699,7 +801,7 @@ footer{
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival artístico" onerror="this.src='https://via.placeholder.com/800x240?text=Festival+Primaria'">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival artístico">
     </div>
     <div class="pag-content">
       <p><strong>🎪 ¡El escenario se convierte en un Gran Show!</strong></p><br>
@@ -716,7 +818,6 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
-<!-- PÁGINA: Festival Kínder -->
 <div id="pagina-festival-kinder" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎪🐼</div>
@@ -725,7 +826,7 @@ footer{
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/7128612/pexels-photo-7128612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival Kínder" onerror="this.src='https://via.placeholder.com/800x240?text=Festival+Kínder'">
+      <img src="https://images.pexels.com/photos/7128612/pexels-photo-7128612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival Kínder">
     </div>
     <div class="pag-content">
       <p><strong>🎨 ¡Los más pequeños también brillan!</strong></p><br>
