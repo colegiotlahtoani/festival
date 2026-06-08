@@ -12,48 +12,48 @@
 
     <style>
         :root {
-            --rojo: #e8372d;
-            --rojo-oscuro: #c0251a;
-            --rojo-claro: rgba(232,55,45,0.12);
-            --dorado: #f5c842;
-            --dorado-claro: #ffe98a;
-            --crema: #fff8e8;
-            --fondo: #fff5e0;
-            --fondo2: #ffecd2;
-            --texto: #3a1a08;
-            --borde: rgba(180,80,20,0.2);
+            --azul: #3A86FF;
+            --morado: #8338EC;
+            --naranja: #FF6B35;
+            --dorado: #FFD166;
+            --dorado-claro: #FFE8A0;
+            --fondo: #F8FAFC;
+            --fondo2: #F1F5F9;
+            --texto: #2D3748;
+            --texto-suave: #4A5568;
+            --borde: rgba(0,0,0,0.05);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: 'Crimson Text', Georgia, serif;
-            background: #fff8f0;
-            color: #3a1a08;
+            background: var(--fondo);
+            color: var(--texto);
             overflow-x: hidden;
             font-size: 17px;
             line-height: 1.6;
         }
 
-        /* ── STRIPES BG ── */
+        /* ── STRIPES BG (más sutiles) ── */
         .stripes-bg {
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
             background: repeating-linear-gradient(
                 90deg,
-                rgba(232,55,45,0.06) 0px, rgba(232,55,45,0.06) 28px,
+                rgba(58,134,255,0.03) 0px, rgba(58,134,255,0.03) 28px,
                 transparent 28px, transparent 56px
             );
         }
 
-        /* ── SPOTLIGHT ── */
+        /* ── SPOTLIGHT (modernizado) ── */
         .spotlight {
             position: fixed; top: -50%; left: 40%;
             width: 320px; height: 180vh;
-            background: radial-gradient(ellipse at top, rgba(245,160,40,0.18) 0%, transparent 60%);
+            background: radial-gradient(ellipse at top, rgba(131,56,236,0.12) 0%, transparent 60%);
             pointer-events: none; z-index: 0;
-            animation: sway 8s ease-in-out infinite alternate;
+            animation: sway 12s ease-in-out infinite alternate;
         }
-        @keyframes sway { from { left: 30%; } to { left: 60%; } }
+        @keyframes sway { from { left: 20%; } to { left: 70%; } }
 
         /* ── CONFETTI ── */
         .confetti-wrap {
@@ -68,7 +68,7 @@
             100% { transform: translateY(110vh)  rotate(720deg); opacity: 0; }
         }
 
-        /* ── PORTADA ── */
+        /* ── PORTADA modernizada ── */
         .portada {
             position: relative; z-index: 2;
             min-height: 100vh;
@@ -77,8 +77,9 @@
             text-align: center;
             padding: 70px 24px 60px;
             gap: 18px;
-            background: linear-gradient(160deg, #ff6b6b 0%, #ff8e53 30%, #ffc93c 60%, #ff6b6b 100%);
+            background: linear-gradient(135deg, #3A86FF 0%, #8338EC 50%, #FF6B35 100%);
             border-bottom: 2px solid var(--dorado);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         .badge {
@@ -87,19 +88,20 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #fff;
-            background: rgba(0,0,0,0.18);
-            border: 2px solid rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.4);
             padding: 7px 24px;
-            border-radius: 30px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
             animation: fadeUp 0.7s ease both;
         }
 
         .logo-wrap {
             animation: fadeUp 0.8s 0.1s ease both;
-            background: #fff8f0;
+            background: rgba(255,255,255,0.95);
             border-radius: 50%;
             padding: 14px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.25), 0 0 0 4px rgba(255,233,138,0.7);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 4px rgba(255,209,102,0.5);
         }
         .festival-logo {
             max-width: 90px;
@@ -110,7 +112,7 @@
         .pretitle {
             font-style: italic;
             font-size: 1rem;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.95);
             letter-spacing: 2px;
             animation: fadeUp 0.9s 0.2s ease both;
         }
@@ -121,7 +123,7 @@
             font-size: clamp(3rem, 10vw, 6rem);
             line-height: 0.95;
             color: #ffffff;
-            text-shadow: 3px 3px 0 rgba(150,40,10,0.5), 0 0 30px rgba(255,100,50,0.4);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
             animation: fadeUp 1s 0.3s ease both;
         }
         .hero-title .sub {
@@ -129,8 +131,8 @@
             font-size: clamp(1.4rem, 4.5vw, 2.4rem);
             font-style: italic;
             font-weight: 700;
-            color: #fff3cc;
-            text-shadow: 2px 2px 0 rgba(150,40,10,0.4);
+            color: var(--dorado-claro);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
             margin-top: 6px;
         }
 
@@ -139,41 +141,46 @@
             width: 100%; max-width: 360px;
             animation: fadeUp 1s 0.4s ease both;
         }
-        .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent); }
+        .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent); }
 
         .hero-date {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.5rem, 5vw, 2.2rem);
             font-weight: 700;
             color: #fff;
-            text-shadow: 1px 2px 0 rgba(150,40,10,0.35);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
             animation: fadeUp 1s 0.5s ease both;
         }
 
         .btn-map {
             background: #ffffff;
-            color: #c0251a;
+            color: var(--azul);
             padding: 13px 32px;
-            border-radius: 3px;
+            border-radius: 50px;
             font-family: 'Crimson Text', serif;
             font-weight: 600;
             font-size: 1.05rem;
             letter-spacing: 1px;
             text-decoration: none;
             display: inline-flex; gap: 8px; align-items: center;
-            box-shadow: 0 0 24px rgba(245,200,66,0.35);
-            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             animation: fadeUp 1s 0.6s ease both;
             border: none; cursor: pointer;
         }
-        .btn-map:hover { transform: scale(1.06); box-shadow: 0 0 36px rgba(245,200,66,0.55); }
+        .btn-map:hover { 
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: var(--dorado);
+            color: #2D3748;
+        }
 
-        /* ── RIBBON ── */
+        /* ── RIBBON modernizado ── */
         .ribbon {
             position: relative; z-index: 2;
-            background: linear-gradient(90deg, #c0251a, #e8372d, #c0251a);
-            border-top: 3px solid #f5c842;
-            border-bottom: 3px solid #f5c842;
+            background: linear-gradient(90deg, #3A86FF, #8338EC, #FF6B35);
+            border-top: 2px solid var(--dorado);
+            border-bottom: 2px solid var(--dorado);
             padding: 14px 20px;
             text-align: center;
             font-family: 'Playfair Display', serif;
@@ -181,138 +188,151 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         /* ── SECTION ── */
         .section {
             position: relative; z-index: 2;
-            padding: 55px 20px;
-            max-width: 860px;
+            padding: 60px 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-            color: #d42020;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--azul);
             text-align: center;
             margin-bottom: 8px;
-            text-shadow: 1px 1px 0 rgba(0,0,0,0.08);
+            font-weight: 800;
         }
         .section-sub {
             text-align: center;
             font-style: italic;
-            color: #7a4020;
-            margin-bottom: 35px;
-            font-size: 1rem;
+            color: var(--texto-suave);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         .sep {
             display: flex; align-items: center; gap: 14px;
             max-width: 500px; margin: 0 auto 40px;
         }
-        .sep-line { flex:1; border-top: 1px dashed rgba(180,60,20,0.35); }
-        .sep span { color: #e8372d; font-size: 1.3rem; }
+        .sep-line { flex:1; border-top: 1px dashed rgba(58,134,255,0.3); }
+        .sep span { color: var(--naranja); font-size: 1.3rem; }
 
-        /* ── EVENTO BUTTONS ── */
+        /* ── EVENTO BUTTONS (tarjetas modernas) ── */
         .evento-btn {
             display: flex;
             align-items: center;
             width: 100%;
-            padding: 18px 20px;
-            margin-bottom: 14px;
-            border: 1px solid rgba(180,60,20,0.2);
-            border-radius: 8px;
-            background: #ffffff;
+            padding: 22px 24px;
+            margin-bottom: 20px;
+            border: 1px solid var(--borde);
+            border-radius: 18px;
+            background: #FFFFFF;
             text-align: left;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            color: #3a1a08;
-            box-shadow: 0 2px 12px rgba(180,60,20,0.1);
+            color: var(--texto);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
         .evento-btn::after {
             content: '\f054';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            position: absolute; right: 18px;
-            color: var(--rojo);
+            position: absolute; right: 24px;
+            color: var(--azul);
             transition: 0.3s;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
         .evento-btn:hover {
-            background: #fff8e8;
-            border-color: var(--rojo);
-            transform: translateX(4px);
-            box-shadow: 0 6px 24px rgba(180,60,20,0.2);
+            transform: translateY(-6px);
+            border-color: var(--azul);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
-        .evento-btn:hover::after { transform: translateX(4px); }
+        .evento-btn:hover::after { 
+            transform: translateX(6px); 
+            opacity: 1;
+            color: var(--naranja);
+        }
 
         .evento-icono {
-            width: 46px; height: 46px;
-            border-radius: 50%;
+            width: 54px; height: 54px;
+            border-radius: 18px;
             display: flex; align-items: center; justify-content: center;
-            margin-right: 16px; flex-shrink: 0;
-            color: var(--negro);
-            font-size: 1.1rem;
+            margin-right: 20px; flex-shrink: 0;
+            font-size: 1.4rem;
         }
         .evento-contenido h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            margin-bottom: 3px;
-            color: #3a1a08;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            color: var(--texto);
+            font-weight: 800;
         }
         .evento-hora {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1rem;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
-        .evento-desc { font-size: 0.88rem; color: #8a5030; }
+        .evento-desc { font-size: 0.9rem; color: var(--texto-suave); }
 
         /* ── MAPA ── */
         .mapa-wrap {
-            border: 2px solid rgba(180,60,20,0.25);
-            border-radius: 8px;
+            border-radius: 24px;
             overflow: hidden;
-            margin: 20px 0;
-            height: 280px;
+            margin: 30px 0 20px;
+            height: 320px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         .mapa-wrap iframe { width:100%; height:100%; border:none; }
 
-        /* ── ACCESS STEPS ── */
+        /* ── ACCESS STEPS moderno ── */
         .steps-grid {
-            display: flex; flex-direction: column; gap: 16px;
+            display: flex; flex-direction: column; gap: 20px;
         }
         .step-card {
-            background: #ffffff;
-            border: 1px solid rgba(180,60,20,0.18);
-            border-left: 5px solid var(--rojo);
-            border-radius: 8px;
-            padding: 20px 24px;
-            display: flex; align-items: flex-start; gap: 16px;
-            transition: 0.3s;
-            box-shadow: 0 2px 10px rgba(180,60,20,0.08);
+            background: #FFFFFF;
+            border: 1px solid var(--borde);
+            border-left: 5px solid var(--azul);
+            border-radius: 18px;
+            padding: 24px 28px;
+            display: flex; align-items: flex-start; gap: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
         }
-        .step-card:hover { background: #fff8e8; transform: translateX(4px); box-shadow: 0 4px 16px rgba(180,60,20,0.15); }
+        .step-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-left-width: 6px;
+        }
         .step-num {
-            min-width: 38px; height: 38px;
-            background: linear-gradient(135deg, var(--rojo), var(--dorado));
-            border-radius: 50%;
+            min-width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--azul), var(--morado));
+            border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Playfair Display', serif;
-            font-weight: 700; font-size: 1.1rem;
-            color: var(--negro);
+            font-weight: 800; font-size: 1.2rem;
+            color: white;
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(58,134,255,0.3);
         }
         .step-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            color: #c0251a;
-            margin-bottom: 4px;
+            font-size: 1.1rem;
+            color: var(--azul);
+            margin-bottom: 6px;
+            font-weight: 800;
         }
-        .step-card p { font-size: 0.95rem; color: #5a2a10; }
+        .step-card p { font-size: 0.95rem; color: var(--texto-suave); }
 
         @media(min-width: 640px) {
             .steps-grid { flex-direction: row; }
@@ -322,93 +342,96 @@
         /* ── CONTACTO ── */
         .contact-grid {
             display: flex; flex-wrap: wrap;
-            gap: 14px; justify-content: center;
+            gap: 16px; justify-content: center;
         }
         .contact-link {
             display: flex; align-items: center; gap: 10px;
-            padding: 12px 22px;
-            border-radius: 3px;
+            padding: 12px 28px;
+            border-radius: 60px;
             text-decoration: none;
             font-family: 'Crimson Text', serif;
             font-size: 1rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             color: #fff;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             min-width: 160px; justify-content: center;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
         }
-        .contact-link:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+        .contact-link:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
         .cl-fb   { background: #1877F2; }
         .cl-wa   { background: #25D366; }
         .cl-ig   { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); }
-        .cl-web  { background: #e8372d; border: none; }
+        .cl-web  { background: linear-gradient(135deg, var(--azul), var(--morado)); border: none; }
 
-        /* ── PÁGINAS DE EVENTO ── */
+        /* ── PÁGINAS DE EVENTO (modernizadas) ── */
         .pagina-evento {
             display: none;
             position: fixed; inset: 0;
-            background: #fff8f0;
+            background: var(--fondo);
             z-index: 1000;
-            padding: 30px 20px;
+            padding: 40px 20px;
             overflow-y: auto;
         }
         .pag-inner { max-width: 720px; margin: 0 auto; }
         .btn-cerrar {
-            position: fixed; top: 16px; right: 16px;
-            background: var(--rojo);
-            color: white; width: 42px; height: 42px;
+            position: fixed; top: 20px; right: 20px;
+            background: var(--azul);
+            color: white; width: 48px; height: 48px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.2rem;
+            cursor: pointer; font-size: 1.3rem;
             border: 2px solid var(--dorado);
             z-index: 1001;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             transition: 0.3s;
         }
-        .btn-cerrar:hover { transform: scale(1.1); }
+        .btn-cerrar:hover { transform: scale(1.1) rotate(90deg); background: var(--naranja); }
         .pag-titulo {
             font-family: 'Playfair Display', serif;
             font-size: clamp(1.8rem, 6vw, 2.8rem);
-            color: var(--dorado);
+            color: var(--azul);
             text-align: center;
             margin: 40px 0 10px;
-            text-shadow: 2px 2px 0 #7b1a10;
+            font-weight: 900;
         }
         .pag-hora {
-            color: #fff8e8;
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             text-align: center;
-            color: #fff;
+            color: var(--morado);
             margin-bottom: 30px;
         }
         .pag-img {
-            width: 100%; border-radius: 4px;
-            border: 2px solid var(--borde);
+            width: 100%; border-radius: 24px;
+            border: 1px solid var(--borde);
             margin-bottom: 24px;
             max-height: 320px; object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .pag-destacado {
-            background: #fff0d8;
-            border: 1px solid rgba(180,60,20,0.2);
-            border-left: 5px solid var(--rojo);
-            border-radius: 8px;
-            padding: 22px 24px;
+            background: white;
+            border: 1px solid var(--borde);
+            border-left: 6px solid var(--naranja);
+            border-radius: 20px;
+            padding: 28px 32px;
             font-style: italic;
             font-size: 1.1rem;
             line-height: 1.7;
-            color: #3a1a08;
+            color: var(--texto);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
         /* ── FOOTER ── */
         .footer {
             position: relative; z-index: 2;
-            padding: 40px 20px;
+            padding: 50px 20px 40px;
             text-align: center;
-            border-top: 2px solid rgba(180,60,20,0.2);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: var(--fondo2);
         }
-        .footer p { color: #8a5030; font-size: 0.9rem; }
+        .footer p { color: var(--texto-suave); font-size: 0.9rem; }
 
         /* ── ANIM ── */
         @keyframes fadeUp {
@@ -433,13 +456,11 @@
 
     <p class="pretitle">presenta</p>
 
-    <!-- ILUSTRACIÓN CARPA -->
-    <div style="width:100%; max-width:420px; border-radius:10px; overflow:hidden; border:2px solid rgba(245,200,66,0.4); filter: drop-shadow(0 0 28px rgba(245,200,66,0.45));" data-aos="fade-up" data-aos-delay="200">
+    <!-- ILUSTRACIÓN CARPA (igual) -->
+    <div style="width:100%; max-width:420px; border-radius:16px; overflow:hidden; border:2px solid rgba(255,209,102,0.5); filter: drop-shadow(0 0 28px rgba(255,209,102,0.4));" data-aos="fade-up" data-aos-delay="200">
       <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show" style="width:100%; display:block;">
     </div>
-    <!-- SVG FALLBACK (unused) -->
     <div style="display:none"><svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-        <!-- SKY GRADIENT -->
         <defs>
           <radialGradient id="skyg" cx="50%" cy="0%" r="80%">
             <stop offset="0%" stop-color="#2a0800"/>
@@ -458,7 +479,7 @@
             <stop offset="100%" stop-color="#8b6010"/>
           </linearGradient>
           <linearGradient id="redg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="var(--rojo)"/>
+            <stop offset="0%" stop-color="#e8372d"/>
             <stop offset="100%" stop-color="#7b1a10"/>
           </linearGradient>
           <filter id="glow">
@@ -466,13 +487,9 @@
             <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
         </defs>
-
-        <!-- BG -->
         <rect width="480" height="260" fill="url(#skyg)"/>
         <rect width="480" height="260" fill="url(#spotL)" opacity="0.9"/>
         <rect width="480" height="260" fill="url(#spotR)" opacity="0.9"/>
-
-        <!-- STARS -->
         <g fill="white" opacity="0.85" filter="url(#glow)">
           <circle cx="30"  cy="18"  r="1.2"/><circle cx="60"  cy="8"   r="0.9"/>
           <circle cx="100" cy="22"  r="1.4"/><circle cx="140" cy="10"  r="1"/>
@@ -484,41 +501,28 @@
           <circle cx="310" cy="38"  r="0.8"/><circle cx="440" cy="40"  r="1.1"/>
           <circle cx="75"  cy="55"  r="0.6"/><circle cx="395" cy="50"  r="0.7"/>
         </g>
-
-        <!-- BUNTING FLAGS top -->
         <polyline points="40,30 480,15" stroke="rgba(245,200,66,0.3)" stroke-width="0.6" fill="none"/>
         <g opacity="0.75">
-          <polygon points="80,32 88,32 84,44"  fill="var(--rojo)"/>
+          <polygon points="80,32 88,32 84,44"  fill="#e8372d"/>
           <polygon points="130,28 138,28 134,40" fill="#f5c842"/>
-          <polygon points="180,25 188,25 184,37" fill="var(--rojo)"/>
+          <polygon points="180,25 188,25 184,37" fill="#e8372d"/>
           <polygon points="230,22 238,22 234,34" fill="#f5c842"/>
-          <polygon points="280,20 288,20 284,32" fill="var(--rojo)"/>
+          <polygon points="280,20 288,20 284,32" fill="#e8372d"/>
           <polygon points="330,18 338,18 334,30" fill="#f5c842"/>
-          <polygon points="380,17 388,17 384,29" fill="var(--rojo)"/>
+          <polygon points="380,17 388,17 384,29" fill="#e8372d"/>
           <polygon points="430,16 438,16 434,28" fill="#f5c842"/>
         </g>
-
-        <!-- POLE CENTER -->
         <rect x="236" y="40" width="8" height="120" fill="#c8a030" rx="2"/>
-        <!-- FLAG ON TOP -->
-        <polygon points="244,40 274,52 244,64" fill="var(--rojo)" opacity="0.95"/>
+        <polygon points="244,40 274,52 244,64" fill="#e8372d" opacity="0.95"/>
         <polygon points="244,40 274,52 244,64" fill="none" stroke="#f5c842" stroke-width="0.8"/>
-
-        <!-- TENT STRIPES (alternating red/gold) -->
-        <!-- Left half -->
         <polygon points="240,42 60,200 160,200"  fill="url(#redg)"  opacity="0.97"/>
         <polygon points="240,42 160,200 200,200" fill="url(#tentg)" opacity="0.97"/>
         <polygon points="240,42 200,200 220,200" fill="url(#redg)"  opacity="0.97"/>
-        <!-- Right half -->
         <polygon points="240,42 320,200 420,200" fill="url(#redg)"  opacity="0.97"/>
         <polygon points="240,42 280,200 320,200" fill="url(#tentg)" opacity="0.97"/>
         <polygon points="240,42 260,200 280,200" fill="url(#redg)"  opacity="0.97"/>
-
-        <!-- TENT OUTLINE -->
         <polyline points="60,200 240,42 420,200" fill="none" stroke="#f5c842" stroke-width="1.5" opacity="0.6"/>
-
-        <!-- SCALLOP BORDER -->
-        <g fill="var(--rojo)" stroke="#f5c842" stroke-width="0.8">
+        <g fill="#e8372d" stroke="#f5c842" stroke-width="0.8">
           <ellipse cx="80"  cy="199" rx="22" ry="10"/>
           <ellipse cx="124" cy="199" rx="22" ry="10"/>
           <ellipse cx="168" cy="199" rx="22" ry="10"/>
@@ -528,33 +532,21 @@
           <ellipse cx="344" cy="199" rx="22" ry="10"/>
           <ellipse cx="388" cy="199" rx="22" ry="10"/>
         </g>
-
-        <!-- ENTRANCE CURTAIN -->
         <rect x="188" y="155" width="104" height="50" fill="#7b1a10" rx="2"/>
-        <path d="M188,155 Q216,175 240,155 Q264,175 292,155 L292,205 L188,205 Z" fill="var(--rojo)"/>
+        <path d="M188,155 Q216,175 240,155 Q264,175 292,155 L292,205 L188,205 Z" fill="#e8372d"/>
         <rect x="236" y="155" width="8" height="50" fill="#f5c842" opacity="0.4"/>
-
-        <!-- LANTERNS -->
         <g filter="url(#glow)">
-          <!-- Left lantern -->
           <rect x="110" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
           <rect x="118" y="144" width="2" height="6" fill="#c8a030"/>
           <line x1="119" y1="144" x2="119" y2="135" stroke="#c8a030" stroke-width="1"/>
-          <!-- Right lantern -->
           <rect x="352" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
           <rect x="360" y="144" width="2" height="6" fill="#c8a030"/>
           <line x1="361" y1="144" x2="361" y2="135" stroke="#c8a030" stroke-width="1"/>
         </g>
-
-        <!-- SIDE POLES -->
         <rect x="57"  y="150" width="6" height="60" fill="#c8a030" rx="1"/>
         <rect x="417" y="150" width="6" height="60" fill="#c8a030" rx="1"/>
-
-        <!-- GROUND LINE -->
         <rect x="0" y="210" width="480" height="50" fill="#0c0704"/>
         <rect x="0" y="210" width="480" height="2" fill="#f5c842" opacity="0.3"/>
-
-        <!-- LIGHTS ON TENT EDGE (left) -->
         <g fill="#ffe98a" filter="url(#glow)" opacity="0.9">
           <circle cx="90"  cy="195" r="3"/>
           <circle cx="135" cy="190" r="3"/>
@@ -565,13 +557,9 @@
           <circle cx="345" cy="190" r="3"/>
           <circle cx="390" cy="195" r="3"/>
         </g>
-
-        <!-- STAR BURST TOP POLE -->
         <g transform="translate(240,38)" fill="#f5c842" filter="url(#glow)">
           <polygon points="0,-10 2,-4 8,-4 3,0 5,6 0,3 -5,6 -3,0 -8,-4 -2,-4" opacity="0.95"/>
         </g>
-
-        <!-- BANNER TEXT -->
         <rect x="130" y="215" width="220" height="28" rx="3" fill="#b5231a" stroke="#f5c842" stroke-width="1.2"/>
         <text x="240" y="234" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#f5c842" letter-spacing="2">EL GRAN SHOW</text>
       </svg></div>
@@ -594,7 +582,7 @@
     </a>
 </header>
 
-<!-- RIBBON -->
+<!-- RIBBON modernizado -->
 <div class="ribbon">✦ &nbsp; ¡Organiza tu tiempo — el show debe continuar! &nbsp; ✦</div>
 
 <!-- EVENTOS -->
@@ -604,36 +592,36 @@
 
     <!-- Acto Académico -->
     <button class="evento-btn" onclick="mostrarPagina('acto-academico')">
-        <div class="evento-icono" style="background:var(--dorado);">
+        <div class="evento-icono" style="background:linear-gradient(135deg, var(--azul), var(--morado)); color:white;">
             <i class="fas fa-graduation-cap"></i>
         </div>
         <div class="evento-contenido">
             <h3>Acto Académico</h3>
-            <p class="evento-hora" style="color:var(--dorado);">8:00 a.m.</p>
+            <p class="evento-hora" style="color:var(--azul);">8:00 a.m.</p>
             <p class="evento-desc">Toca para ver detalles del acto ✨</p>
         </div>
     </button>
 
     <!-- Festival Primaria -->
     <button class="evento-btn" onclick="mostrarPagina('festival-primaria')">
-        <div class="evento-icono" style="background:var(--rojo);">
+        <div class="evento-icono" style="background:linear-gradient(135deg, var(--naranja), var(--dorado)); color:white;">
             <i class="fas fa-theater-masks"></i>
         </div>
         <div class="evento-contenido">
             <h3>Festival Primaria</h3>
-            <p class="evento-hora" style="color:#ff6b5b;">2:30 p.m.</p>
+            <p class="evento-hora" style="color:var(--naranja);">2:30 p.m.</p>
             <p class="evento-desc">Toca para ver detalles del festival 🎭</p>
         </div>
     </button>
 
     <!-- Ubicación -->
     <button class="evento-btn" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
-        <div class="evento-icono" style="background:var(--dorado-claro); color:var(--negro);">
+        <div class="evento-icono" style="background:linear-gradient(135deg, var(--morado), var(--azul)); color:white;">
             <i class="fas fa-map-marker-alt"></i>
         </div>
         <div class="evento-contenido">
             <h3>Lugar del Evento</h3>
-            <p class="evento-hora" style="color:var(--dorado);">Ver en Google Maps</p>
+            <p class="evento-hora" style="color:var(--morado);">Ver en Google Maps</p>
             <p class="evento-desc">Toca para abrir la ubicación 📍</p>
         </div>
     </button>
@@ -664,7 +652,7 @@
             <div class="step-num">1</div>
             <div>
                 <h3>Recibe tus boletos</h3>
-                <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--dorado);">$100 pesos</strong>.</p>
+                <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--naranja);">$100 pesos</strong>.</p>
             </div>
         </div>
         <div class="step-card" data-aos="fade-up" data-aos-delay="200">
@@ -751,23 +739,20 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
-    // AOS
     AOS.init({ once: true, duration: 750, easing: 'ease-out-back' });
 
-    // Confetti dorado + rojo
     window.addEventListener('load', () => {
         confetti({
             particleCount: 120,
             spread: 70,
             origin: { y: 0.55 },
-            colors: ['#f5c842','#ffe98a','#b5231a','#fdf3dc','#7b1a10']
+            colors: ['#FFD166','#FFE8A0','#3A86FF','#8338EC','#FF6B35']
         });
     });
 
-    // Floating confetti dots
     (function(){
         const wrap = document.getElementById('confetti');
-        const colors = ['#f5c842','#b5231a','#fdf3dc','#ffe98a','#fff'];
+        const colors = ['#FFD166','#3A86FF','#8338EC','#FF6B35','#FFFFFF'];
         for(let i=0; i<50; i++){
             const d = document.createElement('div');
             d.className = 'cdot';
@@ -783,7 +768,6 @@
         }
     })();
 
-    // Navegación
     function mostrarPagina(id) {
         document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
         const el = document.getElementById('pagina-' + id);
