@@ -33,6 +33,11 @@
   --dark: #3A3845;
   --amarillo-vivo: #FFEB3B;
 
+  --primaria-color: #FF6B6B;
+  --primaria-dark: #E04E4E;
+  --kinder-color: #4ECDC4;
+  --kinder-dark: #36B3AA;
+
   --shadow:0 16px 40px rgba(0,0,0,.10);
   --radius-xl:26px;
   --radius-lg:18px;
@@ -204,12 +209,22 @@ body{
   background:white;
 }
 
+/* Estilos específicos para cada tipo de tarjeta */
+.day-card.primaria-card .day-top{
+  background:linear-gradient(135deg, var(--primaria-color), var(--primaria-dark));
+}
+.day-card.kinder-card .day-top{
+  background:linear-gradient(135deg, var(--kinder-color), var(--kinder-dark));
+}
+.day-card.academico-card .day-top{
+  background:linear-gradient(135deg, var(--blue), var(--purple));
+}
+
 .day-top{
   padding:18px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:linear-gradient(135deg,var(--blue),var(--purple));
   color:white;
   font-weight:700;
   font-size:1rem;
@@ -225,6 +240,25 @@ body{
   font-size:.7rem;
   font-weight:600;
   letter-spacing:0;
+}
+
+.badge-primaria{
+  background:#FF6B6B;
+  color:white;
+  padding:4px 12px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
+  margin-left:8px;
+}
+.badge-kinder{
+  background:#4ECDC4;
+  color:white;
+  padding:4px 12px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
+  margin-left:8px;
 }
 
 .content{padding:20px;display:grid;gap:16px;}
@@ -251,13 +285,20 @@ body{
 }
 
 .apple-pill{
-  background:var(--green);
   padding:4px 12px;
   border-radius:999px;
   font-size:.7rem;
   font-weight:700;
   color:white;
-  background:linear-gradient(90deg,var(--green),#2ea84c);
+}
+.apple-pill.primaria-pill{
+  background:linear-gradient(90deg, var(--primaria-color), var(--primaria-dark));
+}
+.apple-pill.kinder-pill{
+  background:linear-gradient(90deg, var(--kinder-color), var(--kinder-dark));
+}
+.apple-pill.academico-pill{
+  background:linear-gradient(90deg, var(--green), #2ea84c);
 }
 
 .apple-item{
@@ -272,15 +313,16 @@ body{
 }
 .apple-item i{
   width:20px;
-  color:var(--blue);
   font-size:.8rem;
 }
-
-.apple-dot{
-  width:6px;
-  height:6px;
-  background:var(--orange);
-  border-radius:50%;
+.apple-item.primaria-item i{
+  color:var(--primaria-color);
+}
+.apple-item.kinder-item i{
+  color:var(--kinder-color);
+}
+.apple-item i{
+  color:var(--blue);
 }
 
 .btn-apple{
@@ -291,7 +333,6 @@ body{
   border-radius:999px;
   font-weight:600;
   font-size:.75rem;
-  color:var(--blue);
   display:inline-flex;
   align-items:center;
   gap:8px;
@@ -300,9 +341,21 @@ body{
   width:fit-content;
   box-shadow:0 1px 2px rgba(0,0,0,0.05);
 }
-.btn-apple:hover{
-  background:var(--blue);
+.btn-apple.primaria-btn{
+  color:var(--primaria-color);
+}
+.btn-apple.primaria-btn:hover{
+  background:var(--primaria-color);
   color:white;
+}
+.btn-apple.kinder-btn{
+  color:var(--kinder-color);
+}
+.btn-apple.kinder-btn:hover{
+  background:var(--kinder-color);
+  color:white;
+}
+.btn-apple:hover{
   gap:12px;
   transform:scale(1.02);
 }
@@ -559,6 +612,12 @@ footer{
   text-align:center;
   position:relative;
 }
+.pag-hero.primaria-hero{
+  background:linear-gradient(135deg, var(--primaria-color), var(--primaria-dark));
+}
+.pag-hero.kinder-hero{
+  background:linear-gradient(135deg, var(--kinder-color), var(--kinder-dark));
+}
 .pag-hero-icon{
   font-size:4rem;
   color:white;
@@ -700,6 +759,24 @@ footer{
   .pag-content{padding:24px;}
   .info-grid{grid-template-columns:1fr;}
 }
+
+/* Etiquetas visuales adicionales */
+.grade-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-left: 8px;
+}
+.grade-badge.primaria {
+  background: #FF6B6B;
+  color: white;
+}
+.grade-badge.kinder {
+  background: #4ECDC4;
+  color: white;
+}
 </style>
 </head>
 
@@ -741,11 +818,11 @@ footer{
 
     <div class="menu-grid">
       <!-- Acto Académico Primaria -->
-      <div class="day-card" onclick="mostrarPagina('acto-academico-primaria')">
+      <div class="day-card academico-card" onclick="mostrarPagina('acto-academico-primaria')">
         <div class="day-top">🎓 Acto Académico <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill"><i class="far fa-clock"></i> 8:00 a.m.</span></div>
+            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill academico-pill"><i class="far fa-clock"></i> 8:00 a.m.</span></div>
             <div class="apple-item"><i class="fas fa-graduation-cap"></i> Entrega de diplomas</div>
             <div class="apple-item"><i class="fas fa-hat-wizard"></i> Lanzamiento de birretes</div>
             <div class="apple-item"><i class="fas fa-heart"></i> Agradecimientos</div>
@@ -755,11 +832,11 @@ footer{
       </div>
 
       <!-- Acto Académico Kínder -->
-      <div class="day-card" onclick="mostrarPagina('acto-academico-kinder')">
+      <div class="day-card academico-card" onclick="mostrarPagina('acto-academico-kinder')">
         <div class="day-top">🎓 Acto Académico <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill"><i class="far fa-clock"></i> 9:45 a.m.</span></div>
+            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill academico-pill"><i class="far fa-clock"></i> 9:45 a.m.</span></div>
             <div class="apple-item"><i class="fas fa-graduation-cap"></i> Entrega de diplomas</div>
             <div class="apple-item"><i class="fas fa-hat-wizard"></i> Lanzamiento de birretes</div>
             <div class="apple-item"><i class="fas fa-heart"></i> Agradecimientos</div>
@@ -769,31 +846,43 @@ footer{
       </div>
 
       <!-- Festival Primaria -->
-      <div class="day-card" onclick="mostrarPagina('festival-primaria')">
-        <div class="day-top">🎭 Festival <span class="mini-tag">Primaria</span></div>
+      <div class="day-card primaria-card" onclick="mostrarPagina('festival-primaria')">
+        <div class="day-top">
+          🎭 Festival 
+          <span class="mini-tag" style="background:#FF6B6B;">🎪 PRIMARIA</span>
+        </div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">Espectáculo Artístico <span class="apple-pill"><i class="far fa-clock"></i> 2:30 p.m.</span></div>
-            <div class="apple-item"><i class="fas fa-music"></i> Danza y música</div>
-            <div class="apple-item"><i class="fas fa-theater-masks"></i> Teatro y actuación</div>
-            <div class="apple-item"><i class="fas fa-users"></i> Participación de todos los grados</div>
-            <div class="apple-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
-            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
+            <div class="apple-block-title">
+              <span><i class="fas fa-fire" style="color:#FF6B6B; margin-right:6px;"></i> ¡Gran Espectáculo!</span>
+              <span class="apple-pill primaria-pill"><i class="far fa-clock"></i> 2:30 p.m.</span>
+            </div>
+            <div class="apple-item primaria-item"><i class="fas fa-music"></i> Danza y música</div>
+            <div class="apple-item primaria-item"><i class="fas fa-theater-masks"></i> Teatro y actuación</div>
+            <div class="apple-item primaria-item"><i class="fas fa-users"></i> Participación de todos los grados</div>
+            <div class="apple-item primaria-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
+            <button class="btn-apple primaria-btn">Ver detalles del Festival <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
 
       <!-- Festival Kínder -->
-      <div class="day-card" onclick="mostrarPagina('festival-kinder')">
-        <div class="day-top">🎭 Festival <span class="mini-tag">Kínder</span></div>
+      <div class="day-card kinder-card" onclick="mostrarPagina('festival-kinder')">
+        <div class="day-top">
+          🎭 Festival 
+          <span class="mini-tag" style="background:#4ECDC4;">🎈 KÍNDER</span>
+        </div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">Espectáculo Artístico <span class="apple-pill"><i class="far fa-clock"></i> 12:00 p.m.</span></div>
-            <div class="apple-item"><i class="fas fa-child"></i> Danzas y canciones</div>
-            <div class="apple-item"><i class="fas fa-users"></i> Presentaciones grupales</div>
-            <div class="apple-item"><i class="fas fa-flag-checkered"></i> Clausura</div>
-            <div class="apple-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
-            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
+            <div class="apple-block-title">
+              <span><i class="fas fa-child" style="color:#4ECDC4; margin-right:6px;"></i> ¡Diversión y Color!</span>
+              <span class="apple-pill kinder-pill"><i class="far fa-clock"></i> 12:00 p.m.</span>
+            </div>
+            <div class="apple-item kinder-item"><i class="fas fa-music"></i> Danzas y canciones</div>
+            <div class="apple-item kinder-item"><i class="fas fa-users"></i> Presentaciones grupales</div>
+            <div class="apple-item kinder-item"><i class="fas fa-flag-checkered"></i> Clausura</div>
+            <div class="apple-item kinder-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
+            <button class="btn-apple kinder-btn">Ver detalles del Festival <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -947,9 +1036,9 @@ footer{
 
 <!-- Página: Festival Primaria -->
 <div id="pagina-festival-primaria" class="pagina-evento">
-  <div class="pag-hero">
+  <div class="pag-hero primaria-hero">
     <div class="pag-hero-icon">🎭</div>
-    <h2>Festival - Primaria</h2>
+    <h2>🎪 Festival - Primaria <span style="font-size:1.2rem; background:#FF6B6B; padding:4px 12px; border-radius:999px; margin-left:10px;">GRADOS 1° a 6°</span></h2>
     <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div>
   </div>
   <div class="pag-body">
@@ -962,7 +1051,7 @@ footer{
         <div class="info-grid">
           <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
           <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>2:30 p.m.</span></div>
-          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria (1° a 6°)</span></div>
         </div>
       </div>
       <div class="info-card">
@@ -979,9 +1068,9 @@ footer{
 
 <!-- Página: Festival Kínder -->
 <div id="pagina-festival-kinder" class="pagina-evento">
-  <div class="pag-hero">
+  <div class="pag-hero kinder-hero">
     <div class="pag-hero-icon">🎭</div>
-    <h2>Festival - Kínder</h2>
+    <h2>🎈 Festival - Kínder <span style="font-size:1.2rem; background:#4ECDC4; padding:4px 12px; border-radius:999px; margin-left:10px;">PREESCOLAR</span></h2>
     <div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m.</div>
   </div>
   <div class="pag-body">
@@ -994,7 +1083,7 @@ footer{
         <div class="info-grid">
           <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
           <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>12:00 p.m.</span></div>
-          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder (Preescolar)</span></div>
         </div>
       </div>
       <div class="info-card">
