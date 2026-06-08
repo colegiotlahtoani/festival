@@ -120,17 +120,25 @@ body{
   flex-wrap:wrap;
   margin-top:12px;
 }
-.date-badge{
-  background:white;
-  color:var(--blue);
+.date-badge-cal{
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  color:#2d1a00;
   padding:8px 20px;
   border-radius:999px;
   font-weight:800;
   font-size:.9rem;
-  box-shadow:0 4px 12px rgba(0,0,0,.08);
-  border:1px solid rgba(10,132,255,.2);
+  box-shadow:0 4px 12px rgba(255,159,10,.3);
 }
-.date-badge i{margin-right:6px;color:var(--orange);}
+.date-badge-loc{
+  background:linear-gradient(135deg,var(--green),var(--lime));
+  color:#1a3a0a;
+  padding:8px 20px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+  box-shadow:0 4px 12px rgba(52,199,89,.3);
+}
+.date-badge-cal i, .date-badge-loc i{margin-right:6px;}
 
 .cover{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
 .cover img{width:100%;height:210px;object-fit:cover;display:block;}
@@ -375,60 +383,99 @@ footer{
   border-top:1px solid rgba(0,0,0,.05);
 }
 
+/* ===== PÁGINAS DE EVENTO MEJORADAS ===== */
 .pagina-evento{
   display:none;
   position:fixed;
   inset:0;
   background:var(--bg);
   z-index:1000;
-  padding:40px 20px;
   overflow-y:auto;
 }
-.pag-inner{max-width:680px;margin:0 auto;}
-.btn-cerrar{
-  position:fixed;
-  top:20px;right:20px;
-  width:48px;height:48px;
-  background:var(--blue);
+.pag-hero{
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  padding:50px 20px 40px;
+  text-align:center;
+  position:relative;
+}
+.pag-hero-icon{
+  font-size:4rem;
   color:white;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:1.5rem;
-  box-shadow:var(--shadow);
-  transition:0.2s;
-  z-index:1001;
+  margin-bottom:16px;
+  text-shadow:0 4px 12px rgba(0,0,0,.2);
 }
-.btn-cerrar:hover{transform:scale(1.1);background:var(--orange);}
-.pag-titulo{
-  font-size:2rem;
+.pag-hero h2{
+  font-size:clamp(1.8rem,5vw,2.5rem);
   font-weight:900;
-  background:linear-gradient(90deg,var(--blue),var(--purple));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  margin:30px 0 10px;
+  color:white;
+  margin-bottom:12px;
 }
-.pag-hora{
-  font-size:1.4rem;
-  font-weight:800;
-  color:var(--blue);
-  margin-bottom:20px;
-  background:rgba(10,132,255,.1);
+.pag-hero-time{
   display:inline-block;
-  padding:8px 20px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(8px);
+  padding:10px 24px;
   border-radius:999px;
+  font-weight:800;
+  font-size:1.1rem;
+  color:white;
 }
-.pag-destacado{
+.pag-hero-time i{margin-right:8px;}
+.pag-body{
+  max-width:800px;
+  margin:0 auto;
+  padding:30px 20px 50px;
+}
+.pag-image{
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  margin-bottom:28px;
+}
+.pag-image img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+.pag-content{
   background:white;
   border-radius:var(--radius-xl);
   padding:32px;
   box-shadow:var(--shadow);
   line-height:1.7;
-  font-size:1.05rem;
-  border-left:6px solid var(--orange);
+  font-size:1rem;
+  color:var(--text);
+}
+.pag-content strong{color:var(--blue);}
+.btn-cerrar-modern{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  background:white;
+  color:var(--blue);
+  width:52px;
+  height:52px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:1.3rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+  transition:0.2s;
+  z-index:1001;
+  border:none;
+}
+.btn-cerrar-modern:hover{
+  transform:scale(1.1);
+  background:var(--orange);
+  color:white;
+}
+@media(max-width:640px){
+  .pag-hero{padding:40px 20px 30px;}
+  .pag-hero-icon{font-size:3rem;}
+  .pag-content{padding:24px;}
 }
 </style>
 </head>
@@ -454,8 +501,8 @@ footer{
         <h1>El Gran Show</h1>
         <div class="badge">🎪 Festival de Fin de Ciclo 🎭</div>
         <div class="date-info">
-          <span class="date-badge"><i class="fas fa-calendar-alt"></i> 25 de Junio 2026</span>
-          <span class="date-badge"><i class="fas fa-map-marker-alt"></i> Centro de Desarrollo Comunitario #25</span>
+          <span class="date-badge-cal"><i class="fas fa-calendar-alt"></i> 25 de Junio 2026</span>
+          <span class="date-badge-loc"><i class="fas fa-map-marker-alt"></i> Centro de Desarrollo Comunitario #25</span>
         </div>
       </div>
       <div class="cover">
@@ -578,42 +625,55 @@ footer{
   </footer>
 </div>
 
-<!-- Modales de eventos mejorados -->
+<!-- PÁGINA DE EVENTO: Acto Académico (MEJORADA) -->
 <div id="pagina-acto-academico" class="pagina-evento">
-  <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
-  <div class="pag-inner">
-    <h2 class="pag-titulo">Acto Académico</h2>
-    <div class="pag-hora"><i class="fas fa-clock"></i> 8:00 a.m.</div>
-    <div class="pag-destacado">
-      🎓 <strong>Ceremonia de Logros Académicos</strong><br><br>
-      Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar.<br><br>
-      ✨ <strong>Lo que vivirás:</strong><br>
-      • Entrega de reconocimientos a estudiantes destacados<br>
-      • Mensajes inspiradores de nuestras autoridades educativas<br>
-      • Participación especial de la comunidad Tlahtoani<br>
-      • Momento familiar lleno de significado<br><br>
-      ¡Acompáñanos en este momento tan especial para toda nuestra comunidad!
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎓</div>
+    <h2>Acto Académico</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica" onerror="this.src='https://via.placeholder.com/800x240?text=Acto+Académico'">
+    </div>
+    <div class="pag-content">
+      <p><strong>✨ Un momento lleno de orgullo y emoción</strong></p><br>
+      <p>Celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar.</p><br>
+      <p><strong>🎯 Lo que vivirás:</strong></p>
+      <p>• Entrega de reconocimientos a estudiantes destacados</p>
+      <p>• Mensajes inspiradores de nuestras autoridades educativas</p>
+      <p>• Participación especial de la comunidad Tlahtoani</p>
+      <p>• Momento familiar lleno de significado</p><br>
+      <p>¡Acompáñanos en este momento tan especial para toda nuestra comunidad!</p>
     </div>
   </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
+<!-- PÁGINA DE EVENTO: Festival Primaria (MEJORADA) -->
 <div id="pagina-festival-primaria" class="pagina-evento">
-  <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
-  <div class="pag-inner">
-    <h2 class="pag-titulo">Festival Primaria</h2>
-    <div class="pag-hora"><i class="fas fa-clock"></i> 2:30 p.m.</div>
-    <div class="pag-destacado">
-      🎪 <strong>El Gran Show de Primaria</strong><br><br>
-      ¡El escenario se convierte en un Gran Show! Los alumnos de primaria brillarán con sus presentaciones artísticas.<br><br>
-      🎭 <strong>Números estelares:</strong><br>
-      • Danzas folclóricas y modernas<br>
-      • Presentaciones musicales en vivo<br>
-      • Actuaciones teatrales preparadas por los estudiantes<br>
-      • Sorpresas y coreografías especiales<br>
-      • Participación de todos los grados de primaria<br><br>
-      Un espectáculo vibrante para cerrar el ciclo escolar con todo lo que tenemos dentro. ¡Que el show continúe!
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎭</div>
+    <h2>Festival Primaria</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival artístico" onerror="this.src='https://via.placeholder.com/800x240?text=Festival+Primaria'">
+    </div>
+    <div class="pag-content">
+      <p><strong>🎪 ¡El escenario se convierte en un Gran Show!</strong></p><br>
+      <p>Los alumnos de primaria brillarán con sus presentaciones artísticas: baile, música, actuación y mucho talento. Un espectáculo vibrante para cerrar el ciclo escolar.</p><br>
+      <p><strong>🎭 Números estelares:</strong></p>
+      <p>• Danzas folclóricas y modernas</p>
+      <p>• Presentaciones musicales en vivo</p>
+      <p>• Actuaciones teatrales preparadas por los estudiantes</p>
+      <p>• Sorpresas y coreografías especiales</p>
+      <p>• Participación de todos los grados de primaria</p><br>
+      <p>¡Que el show continúe!</p>
     </div>
   </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
