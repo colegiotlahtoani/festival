@@ -26,7 +26,6 @@
   --yellow:#ffd166;
   --dark-blue:#1e3a8a;
   
-  /* Colores para boletos */
   --naranja-boleto: #FF7F3F;
   --verde-limon: #D2F959;
   --azul-bajito: #89CFFD;
@@ -303,7 +302,7 @@ body{
   box-shadow:0 15px 30px rgba(10,132,255,.4);
 }
 
-/* Sección de boletos - Estilo nuevo integrado */
+/* Sección de boletos */
 .tickets-section {
   margin-top: 28px;
   background: white;
@@ -610,7 +609,7 @@ footer{
 
     <div class="menu-grid">
       <!-- Acto Académico Primaria -->
-      <div class="day-card" onclick="mostrarPagina('acto-academico')">
+      <div class="day-card" onclick="mostrarPagina('acto-academico-primaria')">
         <div class="day-top">🎓 Acto Académico <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="block">
@@ -667,7 +666,7 @@ footer{
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: Boletos Digitales (estilo integrado) -->
+  <!-- Sección de Boletos Digitales -->
   <div class="tickets-section">
     <div class="tickets-header">
       <h2><i class="fas fa-ticket-alt"></i> ¡BOLETOS DIGITALES!</h2>
@@ -744,16 +743,16 @@ footer{
   </footer>
 </div>
 
-<!-- Páginas de evento -->
-<div id="pagina-acto-academico" class="pagina-evento">
+<!-- Página: Acto Académico Primaria -->
+<div id="pagina-acto-academico-primaria" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎓</div>
-    <h2>Acto Académico</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m. | Primaria</div>
+    <h2>Acto Académico - Primaria</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m.</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica">
+      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica primaria">
     </div>
     <div class="pag-content">
       <p><strong>✨ Un momento lleno de orgullo y emoción</strong></p><br>
@@ -769,15 +768,16 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
+<!-- Página: Acto Académico Kínder -->
 <div id="pagina-acto-academico-kinder" class="pagina-evento">
   <div class="pag-hero">
-    <div class="pag-hero-icon">🎓🐻</div>
-    <h2>Acto Académico Kínder</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 9:45 a.m. | Kínder</div>
+    <div class="pag-hero-icon">🎓</div>
+    <h2>Acto Académico - Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 9:45 a.m.</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia Kínder">
+      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia kínder">
     </div>
     <div class="pag-content">
       <p><strong>🌟 Un momento mágico para nuestros pequeños</strong></p><br>
@@ -793,15 +793,16 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
+<!-- Página: Festival Primaria -->
 <div id="pagina-festival-primaria" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎭</div>
-    <h2>Festival Primaria</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m. | Primaria</div>
+    <h2>Festival de Primaria</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival artístico">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival primaria">
     </div>
     <div class="pag-content">
       <p><strong>🎪 ¡El escenario se convierte en un Gran Show!</strong></p><br>
@@ -818,15 +819,16 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
+<!-- Página: Festival Kínder -->
 <div id="pagina-festival-kinder" class="pagina-evento">
   <div class="pag-hero">
-    <div class="pag-hero-icon">🎪🐼</div>
-    <h2>Festival Kínder</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m. | Kínder</div>
+    <div class="pag-hero-icon">🎭</div>
+    <h2>Festival de Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m.</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
-      <img src="https://images.pexels.com/photos/7128612/pexels-photo-7128612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival Kínder">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival kínder">
     </div>
     <div class="pag-content">
       <p><strong>🎨 ¡Los más pequeños también brillan!</strong></p><br>
