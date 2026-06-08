@@ -3,49 +3,50 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Colegio Tlahtoani – El Gran Show | Festival Fin de Ciclo</title>
+<title>Colegio Tlahtoani – Festival Fin de Ciclo "El Gran Show"</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
 
 <style>
 :root{
-  --bg:#0f0f1a;
-  --text:#ffffff;
-  --muted:#a0a0b0;
+  --bg:#f5f7fb;
+  --text:#111827;
+  --muted:#6b7280;
 
   --blue:#0a84ff;
   --purple:#7c3aed;
   --green:#34c759;
-  --lime:#d4ff00;
-  --orange:#ff5e00;
-  --yellow:#ffcc00;
-  --red:#ff2d55;
-  --pink:#ff1493;
+  --lime:#b7ff00;
+  --orange:#ff9f0a;
+  --yellow:#ffd166;
+  --dark-blue:#1e3a8a;
   
   --naranja-boleto: #FF7F3F;
   --verde-limon: #D2F959;
-  --azul-bajito: #00d4ff;
-  --morado-boleto: #c084fc;
-  --dark: #1a1a2e;
+  --azul-bajito: #89CFFD;
+  --morado-boleto: #B689FF;
+  --dark: #3A3845;
   --amarillo-vivo: #FFEB3B;
 
-  --shadow:0 25px 45px rgba(0,0,0,.3);
-  --radius-xl:28px;
-  --radius-lg:20px;
-  --glow:0 0 20px rgba(255,94,0,0.3);
+  --shadow:0 16px 40px rgba(0,0,0,.10);
+  --radius-xl:26px;
+  --radius-lg:18px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
   font-family:Inter,sans-serif;
-  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  background:
+    radial-gradient(500px 300px at 10% 10%, rgba(10,132,255,.15), transparent 60%),
+    radial-gradient(450px 280px at 90% 15%, rgba(124,58,237,.18), transparent 60%),
+    radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.15), transparent 60%),
+    var(--bg);
   color:var(--text);
 }
 
@@ -63,11 +64,10 @@ body{
   gap:12px;
   padding:12px;
   border-radius:var(--radius-xl);
-  background:rgba(20,20,35,0.85);
-  backdrop-filter:blur(15px);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
   box-shadow:var(--shadow);
   z-index:10;
-  border:1px solid rgba(255,255,255,0.1);
 }
 
 .brand{display:flex;align-items:center;gap:10px;min-width:0;}
@@ -75,63 +75,50 @@ body{
 .logo-box{
   width:50px;height:50px;
   border-radius:16px;
-  background:linear-gradient(135deg, var(--orange), var(--red));
+  background:white;
   display:grid;
   place-items:center;
   overflow:hidden;
-  box-shadow:0 6px 14px rgba(0,0,0,.3);
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
   flex:0 0 auto;
 }
 .logo-box img{width:78%;object-fit:contain;}
 
-.school{font-weight:900;font-size:1rem;color:white;}
-.subtitle{font-size:.85rem;color:var(--muted);font-weight:600;}
+.school{font-weight:900;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.subtitle{font-size:.85rem;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-/* HERO SHOW */
 .hero{
   margin-top:14px;
   border-radius:var(--radius-xl);
   overflow:hidden;
-  background:linear-gradient(135deg, #ff5e00, #ff1493, #7c3aed);
+  background:linear-gradient(135deg,#ffffff,#fff5e6);
   box-shadow:var(--shadow);
-  position:relative;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="20" cy="30" r="8" fill="white"/><circle cx="80" cy="70" r="12" fill="white"/><circle cx="50" cy="20" r="6" fill="white"/><circle cx="85" cy="25" r="5" fill="white"/><circle cx="15" cy="80" r="7" fill="white"/></svg>');
-  background-size: 60px;
-  pointer-events:none;
 }
 
-.hero-inner{padding:28px;display:grid;gap:18px;position:relative;z-index:1;}
+.hero-inner{padding:20px;display:grid;gap:14px;}
 
 .hero-title h1{
-  font-family: 'Bebas Neue', cursive;
-  font-size:clamp(3rem,8vw,5rem);
+  font-size:clamp(1.8rem,5vw,2.8rem);
   font-weight:900;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  background:linear-gradient(90deg, #FFEB3B, #FFD700, #FFA500, #FF6347);
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  text-shadow:0 0 30px rgba(0,0,0,0.3);
 }
 
 .badge{
   display:inline-block;
   margin-top:8px;
-  padding:8px 22px;
+  padding:8px 18px;
   border-radius:999px;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
+  background:linear-gradient(90deg,var(--blue),var(--purple));
   color:white;
   font-weight:800;
-  font-size:.9rem;
-  letter-spacing:2px;
-  border:1px solid rgba(255,255,255,0.3);
+  font-size:.85rem;
+  letter-spacing:1px;
+  box-shadow:0 4px 12px rgba(10,132,255,.3);
 }
 
 .date-info{
@@ -142,28 +129,26 @@ body{
   margin-top:12px;
 }
 .date-badge-cal{
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  color:#FFEB3B;
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  color:#2d1a00;
   padding:8px 20px;
   border-radius:999px;
   font-weight:800;
   font-size:.9rem;
-  border:1px solid rgba(255,235,59,0.5);
+  box-shadow:0 4px 12px rgba(255,159,10,.3);
 }
 .date-badge-loc{
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  color:#00ffcc;
+  background:linear-gradient(135deg,var(--green),var(--lime));
+  color:#1a3a0a;
   padding:8px 20px;
   border-radius:999px;
   font-weight:800;
   font-size:.9rem;
-  border:1px solid rgba(0,255,204,0.5);
+  box-shadow:0 4px 12px rgba(52,199,89,.3);
 }
 .date-badge-cal i, .date-badge-loc i{margin-right:6px;}
 
-.cover{border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+.cover{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
 .cover img{width:100%;height:210px;object-fit:cover;display:block;}
 
 .section{margin-top:28px;}
@@ -175,16 +160,16 @@ body{
   margin-bottom:20px;
 }
 .section-head h2{
-  font-size:1.4rem;
-  font-weight:800;
-  background:linear-gradient(90deg, var(--orange), var(--yellow));
+  font-size:1.3rem;
+  font-weight:700;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
   letter-spacing:-0.3px;
 }
 
-/* MENU ESTILO SHOW */
+/* ESTILOS APPLE PARA EL MENÚ */
 .menu-grid{
   display:grid;
   gap:20px;
@@ -202,20 +187,21 @@ body{
   }
 }
 
+/* Apple Style Card */
 .day-card{
-  background:rgba(30,30,50,0.7);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
   border-radius:24px;
   overflow:hidden;
-  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
   transition:all 0.3s cubic-bezier(0.2, 0, 0, 1);
   cursor:pointer;
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.5);
 }
 .day-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 25px 45px rgba(0,0,0,0.3);
-  border-color:rgba(255,94,0,0.4);
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+  background:white;
 }
 
 .day-top{
@@ -223,35 +209,34 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:linear-gradient(135deg, var(--orange), var(--red));
+  background:linear-gradient(135deg,var(--blue),var(--purple));
   color:white;
-  font-weight:800;
+  font-weight:700;
   font-size:1rem;
   letter-spacing:-0.2px;
 }
 
 .mini-tag{
-  background:rgba(0,0,0,0.3);
+  background:rgba(255,255,255,0.25);
   backdrop-filter:blur(8px);
   color:white;
   padding:5px 14px;
   border-radius:999px;
   font-size:.7rem;
-  font-weight:700;
+  font-weight:600;
+  letter-spacing:0;
 }
 
 .content{padding:20px;display:grid;gap:16px;}
 
 .apple-block{
-  background:rgba(20,20,35,0.8);
+  background:#f8f9fc;
   border-radius:20px;
   padding:16px;
   transition:all 0.2s ease;
-  border:1px solid rgba(255,255,255,0.05);
 }
 .apple-block:hover{
-  background:rgba(40,40,65,0.9);
-  border-color:rgba(255,94,0,0.3);
+  background:#f0f2f7;
 }
 
 .apple-block-title{
@@ -261,17 +246,18 @@ body{
   margin-bottom:14px;
   font-weight:700;
   font-size:.9rem;
-  color:#FFD700;
+  color:#1c1c1e;
   letter-spacing:-0.2px;
 }
 
 .apple-pill{
-  background:linear-gradient(90deg, var(--green), #00cc88);
+  background:var(--green);
   padding:4px 12px;
   border-radius:999px;
   font-size:.7rem;
   font-weight:700;
   color:white;
+  background:linear-gradient(90deg,var(--green),#2ea84c);
 }
 
 .apple-item{
@@ -279,35 +265,43 @@ body{
   gap:12px;
   align-items:center;
   font-size:.85rem;
-  color:#ccc;
+  color:#3a3a3c;
   font-weight:500;
   margin-bottom:10px;
   padding:4px 0;
 }
 .apple-item i{
   width:20px;
-  color:var(--orange);
+  color:var(--blue);
   font-size:.8rem;
+}
+
+.apple-dot{
+  width:6px;
+  height:6px;
+  background:var(--orange);
+  border-radius:50%;
 }
 
 .btn-apple{
   margin-top:12px;
-  background:rgba(255,94,0,0.2);
-  border:1px solid rgba(255,94,0,0.5);
+  background:white;
+  border:none;
   padding:10px 18px;
   border-radius:999px;
-  font-weight:700;
+  font-weight:600;
   font-size:.75rem;
-  color:var(--orange);
+  color:var(--blue);
   display:inline-flex;
   align-items:center;
   gap:8px;
   cursor:pointer;
   transition:all 0.2s;
   width:fit-content;
+  box-shadow:0 1px 2px rgba(0,0,0,0.05);
 }
 .btn-apple:hover{
-  background:var(--orange);
+  background:var(--blue);
   color:white;
   gap:12px;
   transform:scale(1.02);
@@ -319,7 +313,6 @@ body{
   margin:20px 0;
   height:280px;
   box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,0.1);
 }
 .mapa-wrap iframe{width:100%;height:100%;border:none;}
 
@@ -327,32 +320,32 @@ body{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  background:linear-gradient(90deg, var(--orange), var(--red));
+  background:linear-gradient(90deg,var(--blue),var(--purple));
   color:white;
   padding:12px 28px;
   border-radius:999px;
   font-weight:800;
   text-decoration:none;
   transition:0.2s;
-  box-shadow:0 8px 20px rgba(255,94,0,.3);
+  box-shadow:0 8px 20px rgba(10,132,255,.3);
   border:none;
   cursor:pointer;
 }
 .btn-modern:hover{
   transform:translateY(-3px);
   gap:14px;
-  box-shadow:0 15px 30px rgba(255,94,0,.5);
+  box-shadow:0 15px 30px rgba(10,132,255,.4);
 }
 
-/* Tickets */
+/* Sección de boletos */
 .tickets-section {
   margin-top: 28px;
-  background:rgba(30,30,50,0.7);
-  backdrop-filter:blur(12px);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
   border-radius: var(--radius-xl);
   padding: 32px;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.6);
 }
 
 .tickets-header {
@@ -374,7 +367,7 @@ body{
 }
 
 .extra-ticket-info {
-  background: linear-gradient(135deg, rgba(255,127,63,0.2), rgba(192,132,252,0.2));
+  background: linear-gradient(135deg, #fff8e8, #fff0d8);
   border-radius: 20px;
   padding: 20px;
   margin: 20px 0;
@@ -392,6 +385,10 @@ body{
   color: var(--morado-boleto);
   margin: 10px 0;
 }
+.extra-ticket-info p {
+  color: var(--dark);
+  font-weight: 500;
+}
 
 .steps-container-boleto {
   display: grid;
@@ -401,16 +398,17 @@ body{
 }
 
 .step-boleto {
-  background: rgba(20,20,35,0.8);
+  background: var(--bg);
   border-radius: 20px;
   padding: 25px;
   transition: all 0.3s ease;
   position: relative;
-  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  border: 2px solid rgba(0,0,0,.05);
 }
 .step-boleto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.3);
+  box-shadow: 0 12px 24px rgba(0,0,0,.1);
 }
 .step-boleto-1 { border-top: 5px solid var(--naranja-boleto); }
 .step-boleto-2 { border-top: 5px solid var(--verde-limon); }
@@ -424,7 +422,7 @@ body{
   right: 15px;
   opacity: 0.1;
   line-height: 1;
-  color: white;
+  color: var(--dark);
 }
 .step-icon-boleto {
   width: 60px;
@@ -443,7 +441,6 @@ body{
   font-size: 1.3rem;
   margin-bottom: 10px;
   font-weight: 800;
-  color: white;
 }
 .step-boleto p {
   color: var(--muted);
@@ -452,7 +449,7 @@ body{
 }
 
 .important-section-boleto {
-  background: linear-gradient(135deg, rgba(255,127,63,0.15), rgba(192,132,252,0.15));
+  background: linear-gradient(135deg, #fff8e8, #fff0d8);
   border-radius: 20px;
   padding: 25px;
   border-left: 6px solid var(--naranja-boleto);
@@ -463,8 +460,21 @@ body{
   margin-bottom: 15px;
   font-size: 1.3rem;
 }
+.important-list-boleto {
+  list-style-type: none;
+  padding: 0;
+}
 .important-list-boleto li {
-  color: #ccc;
+  padding: 8px 0;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 600;
+}
+.important-list-boleto li::before {
+  content: "❗";
+  position: absolute;
+  left: 0;
+  color: var(--naranja-boleto);
 }
 
 .contact-grid{
@@ -484,28 +494,26 @@ body{
   font-weight:700;
   color:white;
   transition:0.2s;
-  box-shadow:0 6px 14px rgba(0,0,0,.2);
+  box-shadow:0 6px 14px rgba(0,0,0,.1);
 }
 .contact-link:hover{transform:translateY(-3px);filter:brightness(1.05);}
 .cl-fb{background:#1877F2;}
 .cl-wa{background:#25D366;}
 .cl-ig{background:linear-gradient(45deg,#405DE6,#C13584,#FD1D1D);}
-.cl-web{background:linear-gradient(90deg,var(--orange),var(--red));}
+.cl-web{background:linear-gradient(90deg,var(--blue),var(--purple));}
 
 .nutricion{
   margin-top:28px;
-  background:rgba(30,30,50,0.7);
-  backdrop-filter:blur(12px);
+  background:linear-gradient(135deg,#ffffff,#f0f4ff);
   border-radius:var(--radius-xl);
   padding:22px 20px;
   text-align:center;
   box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,0.1);
 }
 .nutricion h2{
   font-size:1.25rem;
   font-weight:900;
-  background:linear-gradient(90deg,var(--orange),var(--yellow));
+  background:linear-gradient(90deg,var(--blue),var(--purple));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -523,7 +531,7 @@ footer{
   font-size:.8rem;
   color:var(--muted);
   font-weight:600;
-  border-top:1px solid rgba(255,255,255,0.1);
+  border-top:1px solid rgba(0,0,0,.05);
 }
 
 /* Páginas de evento */
@@ -531,12 +539,12 @@ footer{
   display:none;
   position:fixed;
   inset:0;
-  background:linear-gradient(135deg, #0f0f1a, #1a1a2e);
+  background:var(--bg);
   z-index:1000;
   overflow-y:auto;
 }
 .pag-hero{
-  background:linear-gradient(135deg, var(--orange), var(--red));
+  background:linear-gradient(135deg,var(--blue),var(--purple));
   padding:50px 20px 40px;
   text-align:center;
   position:relative;
@@ -555,7 +563,7 @@ footer{
 }
 .pag-hero-time{
   display:inline-block;
-  background:rgba(0,0,0,0.3);
+  background:rgba(255,255,255,0.25);
   backdrop-filter:blur(8px);
   padding:10px 24px;
   border-radius:999px;
@@ -563,6 +571,7 @@ footer{
   font-size:1.1rem;
   color:white;
 }
+.pag-hero-time i{margin-right:8px;}
 .pag-body{
   max-width:800px;
   margin:0 auto;
@@ -573,7 +582,6 @@ footer{
   overflow:hidden;
   box-shadow:var(--shadow);
   margin-bottom:28px;
-  border:1px solid rgba(255,255,255,0.1);
 }
 .pag-image img{
   width:100%;
@@ -582,54 +590,82 @@ footer{
   display:block;
 }
 .pag-content{
-  background:rgba(30,30,50,0.8);
-  backdrop-filter:blur(12px);
+  background:white;
   border-radius:var(--radius-xl);
   padding:32px;
   box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,0.1);
 }
 .info-card{
-  background:rgba(20,20,35,0.6);
+  background:linear-gradient(135deg, #f8f9ff, #ffffff);
   border-radius:20px;
   padding:20px;
   margin-bottom:24px;
-  border-left:4px solid var(--orange);
+  border-left:4px solid var(--blue);
 }
 .info-card h3{
   font-size:1.1rem;
   font-weight:900;
-  color:var(--orange);
+  color:var(--blue);
   margin-bottom:12px;
   display:flex;
   align-items:center;
   gap:8px;
 }
+.info-card h3 i{font-size:1.2rem;}
+.info-card p{
+  line-height:1.6;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.info-card .highlight{
+  background:rgba(10,132,255,.1);
+  padding:10px 14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:700;
+  font-size:0.9rem;
+  color:var(--blue);
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:15px;
+  margin-top:16px;
+}
 .info-item{
-  background:rgba(20,20,35,0.8);
+  background:var(--bg);
   border-radius:16px;
   padding:14px;
   text-align:center;
-  border:1px solid rgba(255,255,255,0.05);
 }
 .info-item i{
+  font-size:1.4rem;
   color:var(--orange);
+  margin-bottom:8px;
+  display:block;
 }
 .info-item strong{
+  display:block;
+  font-size:0.85rem;
   color:var(--muted);
 }
 .info-item span{
-  color:white;
+  font-weight:800;
+  font-size:1rem;
+  color:var(--text);
 }
-.info-card p{
-  color:#ccc;
+.pag-content p{
+  line-height:1.6;
+  margin-bottom:12px;
+  color:var(--text);
 }
+.pag-content strong{color:var(--blue);}
 .btn-cerrar-modern{
   position:fixed;
   bottom:24px;
   right:24px;
-  background:var(--orange);
-  color:white;
+  background:white;
+  color:var(--blue);
   width:52px;
   height:52px;
   border-radius:999px;
@@ -638,20 +674,21 @@ footer{
   justify-content:center;
   cursor:pointer;
   font-size:1.3rem;
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
   transition:0.2s;
   z-index:1001;
   border:none;
 }
 .btn-cerrar-modern:hover{
   transform:scale(1.1);
-  background:var(--red);
+  background:var(--orange);
+  color:white;
 }
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  gap:15px;
-  margin-top:16px;
+@media(max-width:640px){
+  .pag-hero{padding:40px 20px 30px;}
+  .pag-hero-icon{font-size:3rem;}
+  .pag-content{padding:24px;}
+  .info-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -666,7 +703,7 @@ footer{
       </div>
       <div>
         <div class="school">Colegio Tlahtoani</div>
-        <div class="subtitle">EL GRAN SHOW - Festival Fin de Ciclo</div>
+        <div class="subtitle">Festival Fin de Ciclo – El Gran Show</div>
       </div>
     </div>
   </div>
@@ -674,8 +711,8 @@ footer{
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-title">
-        <h1>EL GRAN SHOW</h1>
-        <div class="badge">🎪⭐ El espectáculo más esperado del año ⭐🎪</div>
+        <h1>El Gran Show</h1>
+        <div class="badge">🎪 Festival de Fin de Ciclo 🎭</div>
         <div class="date-info">
           <span class="date-badge-cal"><i class="fas fa-calendar-alt"></i> 25 de Junio 2026</span>
           <span class="date-badge-loc"><i class="fas fa-map-marker-alt"></i> Centro de Desarrollo Comunitario #25</span>
@@ -689,74 +726,79 @@ footer{
 
   <section class="section">
     <div class="section-head">
-      <h2>🎟️ PROGRAMA DEL SHOW</h2>
+      <h2>🎟️ Programa del Festival</h2>
     </div>
 
     <div class="menu-grid">
+      <!-- Acto Académico Primaria -->
       <div class="day-card" onclick="mostrarPagina('acto-academico-primaria')">
-        <div class="day-top">🎓 ACTO ACADÉMICO <span class="mini-tag">PRIMARIA</span></div>
+        <div class="day-top">🎓 Acto Académico <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">CEREMONIA DE LOGROS <span class="apple-pill"><i class="far fa-clock"></i> 8:00 AM</span></div>
+            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill"><i class="far fa-clock"></i> 8:00 a.m.</span></div>
             <div class="apple-item"><i class="fas fa-graduation-cap"></i> Entrega de diplomas</div>
             <div class="apple-item"><i class="fas fa-hat-wizard"></i> Lanzamiento de birretes</div>
             <div class="apple-item"><i class="fas fa-heart"></i> Agradecimientos</div>
-            <button class="btn-apple">VER SHOW <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
 
+      <!-- Acto Académico Kínder -->
       <div class="day-card" onclick="mostrarPagina('acto-academico-kinder')">
-        <div class="day-top">🎓 ACTO ACADÉMICO <span class="mini-tag">KÍNDER</span></div>
+        <div class="day-top">🎓 Acto Académico <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">CEREMONIA DE LOGROS <span class="apple-pill"><i class="far fa-clock"></i> 9:45 AM</span></div>
+            <div class="apple-block-title">Ceremonia de Logros <span class="apple-pill"><i class="far fa-clock"></i> 9:45 a.m.</span></div>
             <div class="apple-item"><i class="fas fa-graduation-cap"></i> Entrega de diplomas</div>
             <div class="apple-item"><i class="fas fa-hat-wizard"></i> Lanzamiento de birretes</div>
             <div class="apple-item"><i class="fas fa-heart"></i> Agradecimientos</div>
-            <button class="btn-apple">VER SHOW <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
 
+      <!-- Festival Primaria -->
       <div class="day-card" onclick="mostrarPagina('festival-primaria')">
-        <div class="day-top">🎭 EL GRAN SHOW <span class="mini-tag">PRIMARIA</span></div>
+        <div class="day-top">🎭 Festival <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">ESPECTÁCULO ARTÍSTICO <span class="apple-pill"><i class="far fa-clock"></i> 2:30 PM</span></div>
+            <div class="apple-block-title">Espectáculo Artístico <span class="apple-pill"><i class="far fa-clock"></i> 2:30 p.m.</span></div>
             <div class="apple-item"><i class="fas fa-music"></i> Danza y música</div>
             <div class="apple-item"><i class="fas fa-theater-masks"></i> Teatro y actuación</div>
-            <div class="apple-item"><i class="fas fa-users"></i> Todos los grados</div>
+            <div class="apple-item"><i class="fas fa-users"></i> Participación de todos los grados</div>
             <div class="apple-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
-            <button class="btn-apple">VER SHOW <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
 
+      <!-- Festival Kínder -->
       <div class="day-card" onclick="mostrarPagina('festival-kinder')">
-        <div class="day-top">🎭 EL GRAN SHOW <span class="mini-tag">KÍNDER</span></div>
+        <div class="day-top">🎭 Festival <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="apple-block">
-            <div class="apple-block-title">ESPECTÁCULO ARTÍSTICO <span class="apple-pill"><i class="far fa-clock"></i> 12:00 PM</span></div>
+            <div class="apple-block-title">Espectáculo Artístico <span class="apple-pill"><i class="far fa-clock"></i> 12:00 p.m.</span></div>
             <div class="apple-item"><i class="fas fa-child"></i> Danzas y canciones</div>
             <div class="apple-item"><i class="fas fa-users"></i> Presentaciones grupales</div>
-            <div class="apple-item"><i class="fas fa-flag-checkered"></i> Gran clausura</div>
+            <div class="apple-item"><i class="fas fa-flag-checkered"></i> Clausura</div>
             <div class="apple-item"><i class="fas fa-shoe-prints"></i> Baile de cierre de ciclo</div>
-            <button class="btn-apple">VER SHOW <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-apple">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Sección de Boletos Digitales -->
   <div class="tickets-section">
     <div class="tickets-header">
       <h2><i class="fas fa-ticket-alt"></i> ¡BOLETOS DIGITALES!</h2>
-      <p>Instrucciones para tu acceso al GRAN SHOW</p>
+      <p>Instrucciones para tu acceso al festival</p>
     </div>
 
     <div class="extra-ticket-info">
-      <h4>🎟️ BOLETO EXTRA</h4>
+      <h4>🎟️ Boleto extra</h4>
       <div class="price">$100 MXN</div>
       <p>Si deseas ingresar a un familiar o acompañante adicional, el costo del boleto extra es de $100 pesos. Solicítalo en la coordinación del colegio.</p>
     </div>
@@ -766,37 +808,40 @@ footer{
         <div class="step-number-boleto">1</div>
         <div class="step-icon-boleto">📱</div>
         <h3>Recibe tu boleto</h3>
-        <p>El colegio te enviará por WhatsApp tu boleto digital personalizado.</p>
+        <p>El colegio te enviará por WhatsApp un mensaje con tu boleto digital personalizado.</p>
       </div>
       
       <div class="step-boleto step-boleto-2">
         <div class="step-number-boleto">2</div>
         <div class="step-icon-boleto">📲</div>
         <h3>Prepáralo antes</h3>
-        <p>Abre el enlace del boleto antes de salir de casa.</p>
+        <p>Necesitarás internet para abrir el enlace del boleto al llegar al evento.</p>
+        <p><strong>Recomendación:</strong> Abre el boleto antes de salir de casa.</p>
       </div>
       
       <div class="step-boleto step-boleto-3">
         <div class="step-number-boleto">3</div>
         <div class="step-icon-boleto">🔍</div>
         <h3>Escaneo y acceso</h3>
-        <p>Muestra el código QR en pantalla completa para escanear.</p>
+        <p>Forma en fila y muestra el código QR en pantalla completa para que lo escanee la maestra.</p>
       </div>
     </div>
     
     <div class="important-section-boleto">
-      <h3>⚠️ REQUISITOS IMPORTANTES</h3>
+      <h3>⚠️ Requisitos Importantes</h3>
       <ul class="important-list-boleto">
         <li><strong>Solo boletos digitales:</strong> No se aceptan impresos ni capturas</li>
         <li><strong>Conexión activa:</strong> El boleto debe cargarse al momento</li>
         <li><strong>Uso único:</strong> Cada boleto solo permite un acceso válido</li>
+        <li><strong>No compartir:</strong> El sistema detectará boletos ya utilizados</li>
       </ul>
     </div>
   </div>
 
+  <!-- Mapa embebido -->
   <section class="section">
     <div class="section-head">
-      <h2>🗺️ UBICACIÓN</h2>
+      <h2>🗺️ Ubicación</h2>
     </div>
     <div class="mapa-wrap">
       <iframe
@@ -805,14 +850,15 @@ footer{
     </div>
     <div style="text-align:center; margin-top:12px;">
       <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-modern">
-        <i class="fas fa-map-marked-alt"></i> ABRIR EN GOOGLE MAPS
+        <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
       </a>
     </div>
   </section>
 
+  <!-- Redes sociales -->
   <section class="nutricion">
-    <h2>SÍGUENOS EN REDES</h2>
-    <p>Más información del GRAN SHOW</p>
+    <h2>Síguenos en redes</h2>
+    <p>Más información, sorpresas y momentos del festival</p>
     <div class="contact-grid">
       <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://chatwith.io/es/s/63b7348567162" target="_blank" class="contact-link cl-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
@@ -822,16 +868,136 @@ footer{
   </section>
 
   <footer>
-    <p>Colegio Tlahtoani · EL GRAN SHOW · Festival Fin de Ciclo 2026</p>
-    <p style="margin-top:6px;">🎪⭐ ¡El show debe continuar! ⭐🎪</p>
+    <p>Colegio Tlahtoani · Festival Fin de Ciclo 2026</p>
+    <p style="margin-top:6px;">🎪 ¡Los esperamos con todo el corazón! El show debe continuar ✨</p>
   </footer>
 </div>
 
-<!-- Páginas de detalles omitidas por brevedad pero funcionales -->
-<div id="pagina-acto-academico-primaria" class="pagina-evento"><div class="pag-hero"><div class="pag-hero-icon">🎓</div><h2>Acto Académico - Primaria</h2><div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m.</div></div><div class="pag-body"><div class="pag-image"><img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800"></div><div class="pag-content"><div class="info-card"><h3><i class="fas fa-info-circle"></i> Información</h3><div class="info-grid"><div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div><div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>8:00 a.m.</span></div><div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div></div></div><div class="info-card"><h3><i class="fas fa-list-ul"></i> Actividades</h3><p>• Entrega de diplomas<br>• Lanzamiento de birretes<br>• Agradecimientos</p></div></div></div><button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button></div>
-<div id="pagina-acto-academico-kinder" class="pagina-evento"><div class="pag-hero"><div class="pag-hero-icon">🎓</div><h2>Acto Académico - Kínder</h2><div class="pag-hero-time"><i class="fas fa-clock"></i> 9:45 a.m.</div></div><div class="pag-body"><div class="pag-image"><img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800"></div><div class="pag-content"><div class="info-card"><h3><i class="fas fa-info-circle"></i> Información</h3><div class="info-grid"><div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div><div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>9:45 a.m.</span></div><div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div></div></div><div class="info-card"><h3><i class="fas fa-list-ul"></i> Actividades</h3><p>• Entrega de diplomas<br>• Lanzamiento de birretes<br>• Agradecimientos</p></div></div></div><button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button></div>
-<div id="pagina-festival-primaria" class="pagina-evento"><div class="pag-hero"><div class="pag-hero-icon">🎭</div><h2>El Gran Show - Primaria</h2><div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div></div><div class="pag-body"><div class="pag-image"><img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800"></div><div class="pag-content"><div class="info-card"><h3><i class="fas fa-info-circle"></i> Información</h3><div class="info-grid"><div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div><div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>2:30 p.m.</span></div><div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div></div></div><div class="info-card"><h3><i class="fas fa-list-ul"></i> Presentaciones</h3><p>• Danza y música<br>• Teatro y actuación<br>• Participación de todos los grados<br>• Baile de cierre de ciclo</p></div></div></div><button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button></div>
-<div id="pagina-festival-kinder" class="pagina-evento"><div class="pag-hero"><div class="pag-hero-icon">🎭</div><h2>El Gran Show - Kínder</h2><div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m.</div></div><div class="pag-body"><div class="pag-image"><img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800"></div><div class="pag-content"><div class="info-card"><h3><i class="fas fa-info-circle"></i> Información</h3><div class="info-grid"><div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div><div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>12:00 p.m.</span></div><div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div></div></div><div class="info-card"><h3><i class="fas fa-list-ul"></i> Presentaciones</h3><p>• Danzas y canciones<br>• Presentaciones grupales<br>• Gran clausura<br>• Baile de cierre de ciclo</p></div></div></div><button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button></div>
+<!-- Página: Acto Académico Primaria -->
+<div id="pagina-acto-academico-primaria" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎓</div>
+    <h2>Acto Académico - Primaria</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica primaria">
+    </div>
+    <div class="pag-content">
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>8:00 a.m.</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-list-ul"></i> Actividades</h3>
+        <p>• Entrega de diplomas</p>
+        <p>• Lanzamiento de birretes</p>
+        <p>• Agradecimientos</p>
+      </div>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- Página: Acto Académico Kínder -->
+<div id="pagina-acto-academico-kinder" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎓</div>
+    <h2>Acto Académico - Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 9:45 a.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia kínder">
+    </div>
+    <div class="pag-content">
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>9:45 a.m.</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-list-ul"></i> Actividades</h3>
+        <p>• Entrega de diplomas</p>
+        <p>• Lanzamiento de birretes</p>
+        <p>• Agradecimientos</p>
+      </div>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- Página: Festival Primaria -->
+<div id="pagina-festival-primaria" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎭</div>
+    <h2>Festival - Primaria</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival primaria">
+    </div>
+    <div class="pag-content">
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>2:30 p.m.</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-list-ul"></i> Presentaciones</h3>
+        <p>• Danza y música</p>
+        <p>• Teatro y actuación</p>
+        <p>• Participación de todos los grados</p>
+        <p>• Baile de cierre de ciclo</p>
+      </div>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- Página: Festival Kínder -->
+<div id="pagina-festival-kinder" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎭</div>
+    <h2>Festival - Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m.</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival kínder">
+    </div>
+    <div class="pag-content">
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>12:00 p.m.</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-list-ul"></i> Presentaciones</h3>
+        <p>• Danzas y canciones</p>
+        <p>• Presentaciones grupales</p>
+        <p>• Clausura</p>
+        <p>• Baile de cierre de ciclo</p>
+      </div>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -839,7 +1005,7 @@ footer{
   AOS.init({ once: true, duration: 600 });
   
   window.addEventListener('load', () => {
-    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#ff5e00', '#ff1493', '#ffcc00', '#0a84ff'] });
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.55 }, colors: ['#0a84ff', '#7c3aed', '#ff9f0a', '#ffd166'] });
   });
 
   function mostrarPagina(id) {
