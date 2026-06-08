@@ -474,7 +474,7 @@ footer{
   border-top:1px solid rgba(0,0,0,.05);
 }
 
-/* Páginas de evento */
+/* Páginas de evento - MEJORADAS */
 .pagina-evento{
   display:none;
   position:fixed;
@@ -503,7 +503,7 @@ footer{
 }
 .pag-hero-time{
   display:inline-block;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.25);
   backdrop-filter:blur(8px);
   padding:10px 24px;
   border-radius:999px;
@@ -534,12 +534,70 @@ footer{
   border-radius:var(--radius-xl);
   padding:32px;
   box-shadow:var(--shadow);
-  line-height:1.5;
-  font-size:0.95rem;
+}
+.info-card{
+  background:linear-gradient(135deg, #f8f9ff, #ffffff);
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:24px;
+  border-left:4px solid var(--blue);
+}
+.info-card h3{
+  font-size:1.1rem;
+  font-weight:900;
+  color:var(--blue);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.info-card h3 i{font-size:1.2rem;}
+.info-card p{
+  line-height:1.6;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.info-card .highlight{
+  background:rgba(10,132,255,.1);
+  padding:10px 14px;
+  border-radius:12px;
+  margin-top:12px;
+  font-weight:700;
+  font-size:0.9rem;
+  color:var(--blue);
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:15px;
+  margin-top:16px;
+}
+.info-item{
+  background:var(--bg);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+}
+.info-item i{
+  font-size:1.4rem;
+  color:var(--orange);
+  margin-bottom:8px;
+  display:block;
+}
+.info-item strong{
+  display:block;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+.info-item span{
+  font-weight:800;
+  font-size:1rem;
   color:var(--text);
 }
 .pag-content p{
+  line-height:1.6;
   margin-bottom:12px;
+  color:var(--text);
 }
 .pag-content strong{color:var(--blue);}
 .btn-cerrar-modern{
@@ -570,6 +628,7 @@ footer{
   .pag-hero{padding:40px 20px 30px;}
   .pag-hero-icon{font-size:3rem;}
   .pag-content{padding:24px;}
+  .info-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -616,7 +675,7 @@ footer{
         <div class="day-top">🎓 Acto Académico - Primaria <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Ceremonia de Logros <span class="pill">8:00 a.m.</span></div>
+            <div class="block-title">Ceremonia de Logros <span class="pill"><i class="far fa-clock"></i> 8:00 a.m.</span></div>
             <div class="item"><span class="bullet"></span>Entrega de reconocimientos</div>
             <div class="item"><span class="bullet"></span>Palabras alusivas</div>
             <div class="item"><span class="bullet"></span>Momento emotivo familiar</div>
@@ -630,7 +689,7 @@ footer{
         <div class="day-top">🎓 Acto Académico - Kínder <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Ceremonia de Logros <span class="pill">9:45 a.m.</span></div>
+            <div class="block-title">Ceremonia de Logros <span class="pill"><i class="far fa-clock"></i> 9:45 a.m.</span></div>
             <div class="item"><span class="bullet"></span>Entrega de reconocimientos</div>
             <div class="item"><span class="bullet"></span>Presentación especial</div>
             <div class="item"><span class="bullet"></span>Mensaje de despedida</div>
@@ -644,7 +703,7 @@ footer{
         <div class="day-top">🎭 Festival - Primaria <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Espectáculo Artístico <span class="pill">2:30 p.m.</span></div>
+            <div class="block-title">Espectáculo Artístico <span class="pill"><i class="far fa-clock"></i> 2:30 p.m.</span></div>
             <div class="item"><span class="bullet"></span>Danza y música</div>
             <div class="item"><span class="bullet"></span>Teatro y actuación</div>
             <div class="item"><span class="bullet"></span>Participación de todos los grados</div>
@@ -658,7 +717,7 @@ footer{
         <div class="day-top">🎭 Festival - Kínder <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Espectáculo Artístico <span class="pill">12:00 p.m.</span></div>
+            <div class="block-title">Espectáculo Artístico <span class="pill"><i class="far fa-clock"></i> 12:00 p.m.</span></div>
             <div class="item"><span class="bullet"></span>Danzas y canciones</div>
             <div class="item"><span class="bullet"></span>Presentaciones grupales</div>
             <div class="item"><span class="bullet"></span>Clausura especial</div>
@@ -758,9 +817,22 @@ footer{
       <img src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia académica primaria">
     </div>
     <div class="pag-content">
-      <p><strong>✨ Celebración de logros académicos</strong></p>
-      <p>• Entrega de reconocimientos<br>• Mensajes inspiradores<br>• Momento familiar</p>
-      <p>¡Acompáñanos en este momento especial!</p>
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>8:00 a.m.</span></div>
+          <div class="info-item"><i class="fas fa-map-pin"></i><strong>Lugar</strong><span>CDC #25</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-star"></i> Lo que vivirás</h3>
+        <p>• Entrega de reconocimientos a estudiantes destacados</p>
+        <p>• Mensajes inspiradores de autoridades educativas</p>
+        <p>• Momento familiar lleno de significado</p>
+        <div class="highlight"><i class="fas fa-heart"></i> ¡Acompáñanos a celebrar los logros de nuestros alumnos!</div>
+      </div>
     </div>
   </div>
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
@@ -778,9 +850,22 @@ footer{
       <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia kínder">
     </div>
     <div class="pag-content">
-      <p><strong>🌟 Celebrando a nuestros pequeños</strong></p>
-      <p>• Entrega de reconocimientos<br>• Presentación especial de los niños<br>• Mensaje de despedida</p>
-      <p>¡Acompáñanos a celebrar este hermoso logro!</p>
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>9:45 a.m.</span></div>
+          <div class="info-item"><i class="fas fa-map-pin"></i><strong>Lugar</strong><span>CDC #25</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-star"></i> Lo que vivirás</h3>
+        <p>• Entrega de reconocimientos a los pequeños</p>
+        <p>• Presentación especial de los niños</p>
+        <p>• Mensaje de despedida y reflexión</p>
+        <div class="highlight"><i class="fas fa-heart"></i> ¡Celebramos con mucho cariño los logros de nuestros pequeños!</div>
+      </div>
     </div>
   </div>
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
@@ -798,9 +883,23 @@ footer{
       <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival primaria">
     </div>
     <div class="pag-content">
-      <p><strong>🎪 ¡El escenario se convierte en un Gran Show!</strong></p>
-      <p>• Danzas folclóricas y modernas<br>• Presentaciones musicales<br>• Actuaciones teatrales<br>• Participación de todos los grados</p>
-      <p>¡Que el show continúe!</p>
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>2:30 p.m.</span></div>
+          <div class="info-item"><i class="fas fa-map-pin"></i><strong>Lugar</strong><span>CDC #25</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Primaria</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-music"></i> Números estelares</h3>
+        <p>• Danzas folclóricas y modernas</p>
+        <p>• Presentaciones musicales en vivo</p>
+        <p>• Actuaciones teatrales preparadas por los estudiantes</p>
+        <p>• Sorpresas y coreografías especiales</p>
+        <div class="highlight"><i class="fas fa-ticket-alt"></i> ¡Que el show continúe!</div>
+      </div>
     </div>
   </div>
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
@@ -818,9 +917,23 @@ footer{
       <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival kínder">
     </div>
     <div class="pag-content">
-      <p><strong>🎨 ¡Los más pequeños también brillan!</strong></p>
-      <p>• Danzas divertidas y coloridas<br>• Canciones interpretadas por los niños<br>• Participación grupal<br>• Clausura con broche de oro</p>
-      <p>¡Ven a ver a los pequeños grandes artistas!</p>
+      <div class="info-card">
+        <h3><i class="fas fa-info-circle"></i> Información del evento</h3>
+        <div class="info-grid">
+          <div class="info-item"><i class="fas fa-calendar-day"></i><strong>Fecha</strong><span>25 Junio 2026</span></div>
+          <div class="info-item"><i class="fas fa-clock"></i><strong>Hora</strong><span>12:00 p.m.</span></div>
+          <div class="info-item"><i class="fas fa-map-pin"></i><strong>Lugar</strong><span>CDC #25</span></div>
+          <div class="info-item"><i class="fas fa-users"></i><strong>Participantes</strong><span>Kínder</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3><i class="fas fa-child"></i> Números especiales</h3>
+        <p>• Danzas divertidas y coloridas</p>
+        <p>• Canciones interpretadas por los niños</p>
+        <p>• Participación grupal con mucha energía</p>
+        <p>• Clausura con broche de oro</p>
+        <div class="highlight"><i class="fas fa-heart"></i> ¡Los más pequeños también brillan!</div>
+      </div>
     </div>
   </div>
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
