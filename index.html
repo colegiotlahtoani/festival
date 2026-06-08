@@ -23,6 +23,7 @@
   --lime:#b7ff00;
   --orange:#ff9f0a;
   --yellow:#ffd166;
+  --dark-blue:#1e3a8a;
 
   --shadow:0 16px 40px rgba(0,0,0,.10);
   --radius-xl:26px;
@@ -120,13 +121,15 @@ body{
   margin-top:6px;
 }
 .date-badge{
-  background:rgba(255,159,10,.12);
-  padding:6px 14px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:white;
+  padding:8px 20px;
   border-radius:999px;
   font-weight:800;
-  font-size:.85rem;
-  color:var(--orange);
+  font-size:.9rem;
+  box-shadow:0 4px 12px rgba(10,132,255,.3);
 }
+.date-badge i{margin-right:6px;}
 
 .cover{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
 .cover img{width:100%;height:210px;object-fit:cover;display:block;}
@@ -350,7 +353,7 @@ body{
 .nutricion h2{
   font-size:1.25rem;
   font-weight:900;
-  background:linear-gradient(90deg,var(--orange),var(--blue));
+  background:linear-gradient(90deg,var(--blue),var(--purple));
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -407,7 +410,7 @@ footer{
   color:transparent;
   margin:30px 0 10px;
 }
-.pag-hora{font-size:1.3rem;font-weight:800;color:var(--orange);margin-bottom:20px;}
+.pag-hora{font-size:1.3rem;font-weight:800;color:var(--blue);margin-bottom:20px;}
 .pag-destacado{
   background:white;
   border-radius:var(--radius-xl);
@@ -440,7 +443,7 @@ footer{
         <h1>El Gran Show</h1>
         <div class="badge">🎪 Festival de Fin de Ciclo 🎭</div>
         <div class="date-info">
-          <span class="date-badge"><i class="fas fa-calendar-alt"></i> 25 de Junio</span>
+          <span class="date-badge"><i class="fas fa-calendar-alt"></i> 25 de Junio 2026</span>
           <span class="date-badge"><i class="fas fa-map-marker-alt"></i> Centro de Desarrollo Comunitario #25</span>
         </div>
       </div>
@@ -491,7 +494,6 @@ footer{
           <div class="block">
             <div class="block-title">Cómo llegar <span class="pill">Google Maps</span></div>
             <div class="item"><span class="bullet"></span>Centro de Desarrollo Comunitario #25</div>
-            <div class="item"><span class="bullet"></span>Estacionamiento disponible</div>
             <div class="item"><span class="bullet"></span>Acceso para familias</div>
             <button class="btn-detail">Abrir mapa <i class="fas fa-external-link-alt"></i></button>
           </div>
@@ -533,7 +535,7 @@ footer{
   <!-- Mapa embebido -->
   <section class="section">
     <div class="section-head">
-      <h2>🗺️ Ubicación en vivo</h2>
+      <h2>🗺️ Ubicación</h2>
     </div>
     <div class="mapa-wrap">
       <iframe
@@ -549,7 +551,7 @@ footer{
 
   <!-- Redes sociales -->
   <section class="nutricion">
-    <h2><i class="fas fa-heart"></i> Síguenos en redes</h2>
+    <h2>Síguenos en redes</h2>
     <p>Más información, sorpresas y momentos del festival</p>
     <div class="contact-grid">
       <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
@@ -560,7 +562,7 @@ footer{
   </section>
 
   <footer>
-    <p>Colegio Tlahtoani · Festival Fin de Ciclo 2025</p>
+    <p>Colegio Tlahtoani · Festival Fin de Ciclo 2026</p>
     <p style="margin-top:6px;">🎪 ¡Los esperamos con todo el corazón! El show debe continuar ✨</p>
   </footer>
 </div>
