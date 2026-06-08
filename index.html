@@ -1,781 +1,741 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Festival Fin de Ciclo | Colegio Tlahtoani</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Festival Fin de Ciclo | Colegio Tlahtoani – El Gran Show</title>
 
-    <style>
-        :root {
-            --azul: #3A86FF;
-            --morado: #8338EC;
-            --naranja: #FF6B35;
-            --dorado: #FFD166;
-            --dorado-claro: #FFE8A0;
-            --fondo: #F8FAFC;
-            --fondo2: #F1F5F9;
-            --texto: #2D3748;
-            --texto-suave: #4A5568;
-            --borde: rgba(0,0,0,0.05);
-        }
+<!-- Fuentes modernas -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
 
-        * { margin:0; padding:0; box-sizing:border-box; }
+<style>
+:root {
+  --bg: #f5f7fb;
+  --text: #111827;
+  --muted: #6b7280;
+  
+  --azul: #0a84ff;
+  --morado: #7c3aed;
+  --naranja: #ff9f0a;
+  --dorado: #ffd166;
+  --verde: #34c759;
+  --lime: #b7ff00;
+  
+  --shadow: 0 16px 40px rgba(0,0,0,.10);
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+}
 
-        body {
-            font-family: 'Crimson Text', Georgia, serif;
-            background: var(--fondo);
-            color: var(--texto);
-            overflow-x: hidden;
-            font-size: 17px;
-            line-height: 1.6;
-        }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ── STRIPES BG (más sutiles) ── */
-        .stripes-bg {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background: repeating-linear-gradient(
-                90deg,
-                rgba(58,134,255,0.03) 0px, rgba(58,134,255,0.03) 28px,
-                transparent 28px, transparent 56px
-            );
-        }
+body {
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(500px 300px at 10% 10%, rgba(10,132,255,.12), transparent 60%),
+    radial-gradient(450px 280px at 90% 15%, rgba(124,58,237,.15), transparent 60%),
+    radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.12), transparent 60%),
+    var(--bg);
+  color: var(--text);
+}
 
-        /* ── SPOTLIGHT (modernizado) ── */
-        .spotlight {
-            position: fixed; top: -50%; left: 40%;
-            width: 320px; height: 180vh;
-            background: radial-gradient(ellipse at top, rgba(131,56,236,0.12) 0%, transparent 60%);
-            pointer-events: none; z-index: 0;
-            animation: sway 12s ease-in-out infinite alternate;
-        }
-        @keyframes sway { from { left: 20%; } to { left: 70%; } }
+.container {
+  width: min(1100px, calc(100% - 24px));
+  margin: auto;
+  padding: 14px 0 22px;
+}
 
-        /* ── CONFETTI ── */
-        .confetti-wrap {
-            position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
-        }
-        .cdot {
-            position: absolute; border-radius: 50%;
-            animation: cfall linear infinite; opacity: 0;
-        }
-        @keyframes cfall {
-            0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0.9; }
-            100% { transform: translateY(110vh)  rotate(720deg); opacity: 0; }
-        }
+/* Topbar moderna */
+.topbar {
+  position: sticky;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
 
-        /* ── PORTADA modernizada ── */
-        .portada {
-            position: relative; z-index: 2;
-            min-height: 100vh;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            text-align: center;
-            padding: 70px 24px 60px;
-            gap: 18px;
-            background: linear-gradient(135deg, #3A86FF 0%, #8338EC 50%, #FF6B35 100%);
-            border-bottom: 2px solid var(--dorado);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
 
-        .badge {
-            font-family: 'Crimson Text', serif;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #fff;
-            background: rgba(255,255,255,0.15);
-            border: 2px solid rgba(255,255,255,0.4);
-            padding: 7px 24px;
-            border-radius: 40px;
-            backdrop-filter: blur(4px);
-            animation: fadeUp 0.7s ease both;
-        }
+.logo-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: white;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+  flex: 0 0 auto;
+}
+.logo-box img { width: 78%; }
 
-        .logo-wrap {
-            animation: fadeUp 0.8s 0.1s ease both;
-            background: rgba(255,255,255,0.95);
-            border-radius: 50%;
-            padding: 14px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 0 4px rgba(255,209,102,0.5);
-        }
-        .festival-logo {
-            max-width: 90px;
-            display: block;
-            filter: none;
-        }
+.school {
+  font-weight: 900;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.subtitle {
+  font-size: .85rem;
+  color: var(--muted);
+  font-weight: 600;
+}
 
-        .pretitle {
-            font-style: italic;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.95);
-            letter-spacing: 2px;
-            animation: fadeUp 0.9s 0.2s ease both;
-        }
+/* Hero tipo festival */
+.hero {
+  margin-top: 20px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff, #fff5e6);
+  box-shadow: var(--shadow);
+}
 
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 0.95;
-            color: #ffffff;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            animation: fadeUp 1s 0.3s ease both;
-        }
-        .hero-title .sub {
-            display: block;
-            font-size: clamp(1.4rem, 4.5vw, 2.4rem);
-            font-style: italic;
-            font-weight: 700;
-            color: var(--dorado-claro);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            margin-top: 6px;
-        }
+.hero-inner {
+  padding: 24px 20px;
+  display: grid;
+  gap: 16px;
+}
 
-        .div-row {
-            display: flex; align-items: center; gap: 12px;
-            width: 100%; max-width: 360px;
-            animation: fadeUp 1s 0.4s ease both;
-        }
-        .div-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent); }
+.hero-title h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(90deg, var(--azul), var(--morado), var(--naranja));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
 
-        .hero-date {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.5rem, 5vw, 2.2rem);
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            animation: fadeUp 1s 0.5s ease both;
-        }
+.hero-tag {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--morado), var(--azul));
+  color: white;
+  font-weight: 800;
+  font-size: .85rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(124,58,237,.3);
+}
 
-        .btn-map {
-            background: #ffffff;
-            color: var(--azul);
-            padding: 13px 32px;
-            border-radius: 50px;
-            font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            font-size: 1.05rem;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: inline-flex; gap: 8px; align-items: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            animation: fadeUp 1s 0.6s ease both;
-            border: none; cursor: pointer;
-        }
-        .btn-map:hover { 
-            transform: translateY(-3px) scale(1.02); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            background: var(--dorado);
-            color: #2D3748;
-        }
+.date-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-weight: 800;
+  color: var(--naranja);
+  background: rgba(255,159,10,.12);
+  padding: 8px 16px;
+  border-radius: 999px;
+  width: fit-content;
+}
 
-        /* ── RIBBON modernizado ── */
-        .ribbon {
-            position: relative; z-index: 2;
-            background: linear-gradient(90deg, #3A86FF, #8338EC, #FF6B35);
-            border-top: 2px solid var(--dorado);
-            border-bottom: 2px solid var(--dorado);
-            padding: 14px 20px;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ffffff;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
+.cover {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.cover img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
 
-        /* ── SECTION ── */
-        .section {
-            position: relative; z-index: 2;
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+/* Secciones */
+.section {
+  margin-top: 28px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 6px;
+  margin-bottom: 16px;
+}
+.section-head h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--azul), var(--morado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            color: var(--azul);
-            text-align: center;
-            margin-bottom: 8px;
-            font-weight: 800;
-        }
-        .section-sub {
-            text-align: center;
-            font-style: italic;
-            color: var(--texto-suave);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
+/* TABS modernos (igual al diseño de referencia) */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 6px;
+  margin-bottom: 20px;
+}
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  font-weight: 800;
+  cursor: pointer;
+  white-space: normal;
+  line-height: 1.2;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  border: 1px solid rgba(17,24,39,.10);
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+.tab:active { transform: scale(0.97); }
+.tab.active {
+  background: linear-gradient(90deg, var(--azul), var(--morado));
+  color: white;
+  border: none;
+}
 
-        .sep {
-            display: flex; align-items: center; gap: 14px;
-            max-width: 500px; margin: 0 auto 40px;
-        }
-        .sep-line { flex:1; border-top: 1px dashed rgba(58,134,255,0.3); }
-        .sep span { color: var(--naranja); font-size: 1.3rem; }
+.panel { display: none; }
+.panel.active { display: block; animation: fadeIn 0.35s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-        /* ── EVENTO BUTTONS (tarjetas modernas) ── */
-        .evento-btn {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            padding: 22px 24px;
-            margin-bottom: 20px;
-            border: 1px solid var(--borde);
-            border-radius: 18px;
-            background: #FFFFFF;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            color: var(--texto);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .evento-btn::after {
-            content: '\f054';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute; right: 24px;
-            color: var(--azul);
-            transition: 0.3s;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        .evento-btn:hover {
-            transform: translateY(-6px);
-            border-color: var(--azul);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        .evento-btn:hover::after { 
-            transform: translateX(6px); 
-            opacity: 1;
-            color: var(--naranja);
-        }
+/* Grid de tarjetas (cards modernas) */
+.menu-grid {
+  display: grid;
+  gap: 20px;
+}
+@media (min-width: 640px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
 
-        .evento-icono {
-            width: 54px; height: 54px;
-            border-radius: 18px;
-            display: flex; align-items: center; justify-content: center;
-            margin-right: 20px; flex-shrink: 0;
-            font-size: 1.4rem;
-        }
-        .evento-contenido h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-            color: var(--texto);
-            font-weight: 800;
-        }
-        .evento-hora {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-        .evento-desc { font-size: 0.9rem; color: var(--texto-suave); }
+/* Tarjeta de evento estilo premium */
+.event-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+}
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,.15);
+}
 
-        /* ── MAPA ── */
-        .mapa-wrap {
-            border-radius: 24px;
-            overflow: hidden;
-            margin: 30px 0 20px;
-            height: 320px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .mapa-wrap iframe { width:100%; height:100%; border:none; }
+.card-header {
+  background: linear-gradient(90deg, var(--azul), var(--morado));
+  padding: 14px 16px;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-header span:first-child {
+  font-size: 1rem;
+}
+.time-tag {
+  background: rgba(255,255,255,0.25);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
 
-        /* ── ACCESS STEPS moderno ── */
-        .steps-grid {
-            display: flex; flex-direction: column; gap: 20px;
-        }
-        .step-card {
-            background: #FFFFFF;
-            border: 1px solid var(--borde);
-            border-left: 5px solid var(--azul);
-            border-radius: 18px;
-            padding: 24px 28px;
-            display: flex; align-items: flex-start; gap: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-        .step-card:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-left-width: 6px;
-        }
-        .step-num {
-            min-width: 44px; height: 44px;
-            background: linear-gradient(135deg, var(--azul), var(--morado));
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Playfair Display', serif;
-            font-weight: 800; font-size: 1.2rem;
-            color: white;
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(58,134,255,0.3);
-        }
-        .step-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--azul);
-            margin-bottom: 6px;
-            font-weight: 800;
-        }
-        .step-card p { font-size: 0.95rem; color: var(--texto-suave); }
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.event-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--lime), var(--verde));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #1a2a0a;
+  margin-bottom: 6px;
+}
+.event-title {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text);
+}
+.event-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.btn-card {
+  margin-top: 8px;
+  background: var(--bg);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--azul);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: fit-content;
+}
+.btn-card:hover {
+  background: var(--azul);
+  color: white;
+  gap: 12px;
+}
 
-        @media(min-width: 640px) {
-            .steps-grid { flex-direction: row; }
-            .step-card { flex: 1; }
-        }
+/* Tarjetas de acceso (steps) */
+.steps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.step-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  box-shadow: var(--shadow);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+.step-num {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--naranja), var(--dorado));
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #2d1a00;
+  flex-shrink: 0;
+}
+.step-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+.step-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
 
-        /* ── CONTACTO ── */
-        .contact-grid {
-            display: flex; flex-wrap: wrap;
-            gap: 16px; justify-content: center;
-        }
-        .contact-link {
-            display: flex; align-items: center; gap: 10px;
-            padding: 12px 28px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-family: 'Crimson Text', serif;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: #fff;
-            transition: all 0.3s ease;
-            min-width: 160px; justify-content: center;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-        }
-        .contact-link:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
-        .cl-fb   { background: #1877F2; }
-        .cl-wa   { background: #25D366; }
-        .cl-ig   { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); }
-        .cl-web  { background: linear-gradient(135deg, var(--azul), var(--morado)); border: none; }
+@media (min-width: 640px) {
+  .steps-grid { flex-direction: row; }
+  .step-card { flex: 1; }
+}
 
-        /* ── PÁGINAS DE EVENTO (modernizadas) ── */
-        .pagina-evento {
-            display: none;
-            position: fixed; inset: 0;
-            background: var(--fondo);
-            z-index: 1000;
-            padding: 40px 20px;
-            overflow-y: auto;
-        }
-        .pag-inner { max-width: 720px; margin: 0 auto; }
-        .btn-cerrar {
-            position: fixed; top: 20px; right: 20px;
-            background: var(--azul);
-            color: white; width: 48px; height: 48px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.3rem;
-            border: 2px solid var(--dorado);
-            z-index: 1001;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-        .btn-cerrar:hover { transform: scale(1.1) rotate(90deg); background: var(--naranja); }
-        .pag-titulo {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 6vw, 2.8rem);
-            color: var(--azul);
-            text-align: center;
-            margin: 40px 0 10px;
-            font-weight: 900;
-        }
-        .pag-hora {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-align: center;
-            color: var(--morado);
-            margin-bottom: 30px;
-        }
-        .pag-img {
-            width: 100%; border-radius: 24px;
-            border: 1px solid var(--borde);
-            margin-bottom: 24px;
-            max-height: 320px; object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .pag-destacado {
-            background: white;
-            border: 1px solid var(--borde);
-            border-left: 6px solid var(--naranja);
-            border-radius: 20px;
-            padding: 28px 32px;
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--texto);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
+/* Mapa */
+.mapa-wrap {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin: 20px 0;
+  height: 300px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0,0,0,.05);
+}
+.mapa-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-        /* ── FOOTER ── */
-        .footer {
-            position: relative; z-index: 2;
-            padding: 50px 20px 40px;
-            text-align: center;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            background: var(--fondo2);
-        }
-        .footer p { color: var(--texto-suave); font-size: 0.9rem; }
+/* Botón moderno */
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, var(--azul), var(--morado));
+  color: white;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(10,132,255,.3);
+  border: none;
+  cursor: pointer;
+}
+.btn-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(10,132,255,.4);
+  gap: 14px;
+}
 
-        /* ── ANIM ── */
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(28px); }
-            to   { opacity:1; transform:translateY(0); }
-        }
-    </style>
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+  transition: 0.2s;
+  box-shadow: 0 6px 14px rgba(0,0,0,.1);
+}
+.contact-link:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+.cl-fb { background: #1877F2; }
+.cl-wa { background: #25D366; }
+.cl-ig { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); }
+.cl-web { background: linear-gradient(90deg, var(--azul), var(--morado)); }
+
+/* Nutrición (ahora sección "Espíritu de festival") */
+.nutricion {
+  margin-top: 28px;
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  border-radius: var(--radius-xl);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.nutricion h2 {
+  font-size: 1.3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--naranja), var(--azul));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nutricion p {
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+  border-top: 1px solid rgba(0,0,0,.05);
+}
+
+/* Modal estilo página evento */
+.pagina-evento {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 1000;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+.pag-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.btn-cerrar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--azul);
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: 0.2s;
+  z-index: 1001;
+}
+.btn-cerrar:hover {
+  transform: scale(1.1);
+  background: var(--naranja);
+}
+.pag-titulo {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--azul), var(--morado));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 30px 0 10px;
+}
+.pag-hora {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--naranja);
+  margin-bottom: 20px;
+}
+.pag-destacado {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-left: 5px solid var(--naranja);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .tab { font-size: 0.75rem; padding: 10px 5px; }
+  .hero-inner { padding: 18px; }
+  .cover img { height: 180px; }
+}
+</style>
 </head>
 <body>
 
-<div class="stripes-bg"></div>
-<div class="spotlight"></div>
-<div class="confetti-wrap" id="confetti"></div>
+<div class="container">
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-box">
+        <img src="logo.png" alt="Logo Colegio Tlahtoani" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div class="school">Colegio Tlahtoani</div>
+        <div class="subtitle">Festival Fin de Ciclo</div>
+      </div>
+    </div>
+  </div>
 
-<!-- PORTADA -->
-<header class="portada">
-    <div class="badge">✦ Colegio Tlahtoani ✦</div>
+  <!-- Hero principal -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-title">
+        <h1>El Gran Show</h1>
+        <div class="hero-tag">✦ Festival de Fin de Ciclo ✦</div>
+        <div class="date-badge">
+          <i class="fas fa-calendar-alt"></i> 25 de Junio · Centro de Desarrollo Comunitario #25
+        </div>
+      </div>
+      <div class="cover">
+        <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show">
+      </div>
+    </div>
+  </section>
 
-    <div class="logo-wrap">
-        <img src="logo.png" class="festival-logo" alt="Logo Tlahtoani">
+  <!-- Programación (tabs + cards) -->
+  <section class="section">
+    <div class="section-head">
+      <h2><i class="fas fa-ticket-alt"></i> Programa del Festival</h2>
     </div>
 
-    <p class="pretitle">presenta</p>
-
-    <!-- ILUSTRACIÓN CARPA (igual) -->
-    <div style="width:100%; max-width:420px; border-radius:16px; overflow:hidden; border:2px solid rgba(255,209,102,0.5); filter: drop-shadow(0 0 28px rgba(255,209,102,0.4));" data-aos="fade-up" data-aos-delay="200">
-      <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show" style="width:100%; display:block;">
-    </div>
-    <div style="display:none"><svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
-        <defs>
-          <radialGradient id="skyg" cx="50%" cy="0%" r="80%">
-            <stop offset="0%" stop-color="#2a0800"/>
-            <stop offset="100%" stop-color="#0c0704"/>
-          </radialGradient>
-          <radialGradient id="spotL" cx="30%" cy="0%" r="60%">
-            <stop offset="0%" stop-color="rgba(245,200,66,0.18)"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <radialGradient id="spotR" cx="70%" cy="0%" r="60%">
-            <stop offset="0%" stop-color="rgba(245,200,66,0.12)"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <linearGradient id="tentg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#d4a017"/>
-            <stop offset="100%" stop-color="#8b6010"/>
-          </linearGradient>
-          <linearGradient id="redg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#e8372d"/>
-            <stop offset="100%" stop-color="#7b1a10"/>
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <rect width="480" height="260" fill="url(#skyg)"/>
-        <rect width="480" height="260" fill="url(#spotL)" opacity="0.9"/>
-        <rect width="480" height="260" fill="url(#spotR)" opacity="0.9"/>
-        <g fill="white" opacity="0.85" filter="url(#glow)">
-          <circle cx="30"  cy="18"  r="1.2"/><circle cx="60"  cy="8"   r="0.9"/>
-          <circle cx="100" cy="22"  r="1.4"/><circle cx="140" cy="10"  r="1"/>
-          <circle cx="180" cy="28"  r="0.8"/><circle cx="220" cy="12"  r="1.3"/>
-          <circle cx="260" cy="25"  r="0.9"/><circle cx="300" cy="8"   r="1.1"/>
-          <circle cx="340" cy="20"  r="1.5"/><circle cx="380" cy="14"  r="0.8"/>
-          <circle cx="420" cy="22"  r="1.2"/><circle cx="455" cy="10"  r="1"/>
-          <circle cx="50"  cy="42"  r="0.7"/><circle cx="160" cy="45"  r="1"/>
-          <circle cx="310" cy="38"  r="0.8"/><circle cx="440" cy="40"  r="1.1"/>
-          <circle cx="75"  cy="55"  r="0.6"/><circle cx="395" cy="50"  r="0.7"/>
-        </g>
-        <polyline points="40,30 480,15" stroke="rgba(245,200,66,0.3)" stroke-width="0.6" fill="none"/>
-        <g opacity="0.75">
-          <polygon points="80,32 88,32 84,44"  fill="#e8372d"/>
-          <polygon points="130,28 138,28 134,40" fill="#f5c842"/>
-          <polygon points="180,25 188,25 184,37" fill="#e8372d"/>
-          <polygon points="230,22 238,22 234,34" fill="#f5c842"/>
-          <polygon points="280,20 288,20 284,32" fill="#e8372d"/>
-          <polygon points="330,18 338,18 334,30" fill="#f5c842"/>
-          <polygon points="380,17 388,17 384,29" fill="#e8372d"/>
-          <polygon points="430,16 438,16 434,28" fill="#f5c842"/>
-        </g>
-        <rect x="236" y="40" width="8" height="120" fill="#c8a030" rx="2"/>
-        <polygon points="244,40 274,52 244,64" fill="#e8372d" opacity="0.95"/>
-        <polygon points="244,40 274,52 244,64" fill="none" stroke="#f5c842" stroke-width="0.8"/>
-        <polygon points="240,42 60,200 160,200"  fill="url(#redg)"  opacity="0.97"/>
-        <polygon points="240,42 160,200 200,200" fill="url(#tentg)" opacity="0.97"/>
-        <polygon points="240,42 200,200 220,200" fill="url(#redg)"  opacity="0.97"/>
-        <polygon points="240,42 320,200 420,200" fill="url(#redg)"  opacity="0.97"/>
-        <polygon points="240,42 280,200 320,200" fill="url(#tentg)" opacity="0.97"/>
-        <polygon points="240,42 260,200 280,200" fill="url(#redg)"  opacity="0.97"/>
-        <polyline points="60,200 240,42 420,200" fill="none" stroke="#f5c842" stroke-width="1.5" opacity="0.6"/>
-        <g fill="#e8372d" stroke="#f5c842" stroke-width="0.8">
-          <ellipse cx="80"  cy="199" rx="22" ry="10"/>
-          <ellipse cx="124" cy="199" rx="22" ry="10"/>
-          <ellipse cx="168" cy="199" rx="22" ry="10"/>
-          <ellipse cx="212" cy="199" rx="22" ry="10"/>
-          <ellipse cx="256" cy="199" rx="22" ry="10"/>
-          <ellipse cx="300" cy="199" rx="22" ry="10"/>
-          <ellipse cx="344" cy="199" rx="22" ry="10"/>
-          <ellipse cx="388" cy="199" rx="22" ry="10"/>
-        </g>
-        <rect x="188" y="155" width="104" height="50" fill="#7b1a10" rx="2"/>
-        <path d="M188,155 Q216,175 240,155 Q264,175 292,155 L292,205 L188,205 Z" fill="#e8372d"/>
-        <rect x="236" y="155" width="8" height="50" fill="#f5c842" opacity="0.4"/>
-        <g filter="url(#glow)">
-          <rect x="110" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
-          <rect x="118" y="144" width="2" height="6" fill="#c8a030"/>
-          <line x1="119" y1="144" x2="119" y2="135" stroke="#c8a030" stroke-width="1"/>
-          <rect x="352" y="148" width="18" height="24" fill="#f5c842" rx="3" opacity="0.9"/>
-          <rect x="360" y="144" width="2" height="6" fill="#c8a030"/>
-          <line x1="361" y1="144" x2="361" y2="135" stroke="#c8a030" stroke-width="1"/>
-        </g>
-        <rect x="57"  y="150" width="6" height="60" fill="#c8a030" rx="1"/>
-        <rect x="417" y="150" width="6" height="60" fill="#c8a030" rx="1"/>
-        <rect x="0" y="210" width="480" height="50" fill="#0c0704"/>
-        <rect x="0" y="210" width="480" height="2" fill="#f5c842" opacity="0.3"/>
-        <g fill="#ffe98a" filter="url(#glow)" opacity="0.9">
-          <circle cx="90"  cy="195" r="3"/>
-          <circle cx="135" cy="190" r="3"/>
-          <circle cx="180" cy="185" r="3"/>
-          <circle cx="210" cy="180" r="3"/>
-          <circle cx="270" cy="180" r="3"/>
-          <circle cx="300" cy="185" r="3"/>
-          <circle cx="345" cy="190" r="3"/>
-          <circle cx="390" cy="195" r="3"/>
-        </g>
-        <g transform="translate(240,38)" fill="#f5c842" filter="url(#glow)">
-          <polygon points="0,-10 2,-4 8,-4 3,0 5,6 0,3 -5,6 -3,0 -8,-4 -2,-4" opacity="0.95"/>
-        </g>
-        <rect x="130" y="215" width="220" height="28" rx="3" fill="#b5231a" stroke="#f5c842" stroke-width="1.2"/>
-        <text x="240" y="234" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-weight="bold" fill="#f5c842" letter-spacing="2">EL GRAN SHOW</text>
-      </svg></div>
-
-    <h1 class="hero-title">
-        El Gran Show
-        <span class="sub">Festival de Fin de Ciclo</span>
-    </h1>
-
-    <div class="div-row">
-        <div class="div-line"></div>
-        <i class="fas fa-hat-wizard" style="color:var(--dorado);"></i>
-        <div class="div-line"></div>
+    <div class="tabs">
+      <div class="tab active" data-panel="panel-actos">Actos Especiales</div>
+      <div class="tab" data-panel="panel-acceso">Acceso & Info</div>
+      <div class="tab" data-panel="panel-mapa">Ubicación</div>
     </div>
 
-    <p class="hero-date">🗓 25 de Junio</p>
-
-    <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-map">
-        <i class="fas fa-map-marker-alt"></i> Ver Ubicación
-    </a>
-</header>
-
-<!-- RIBBON modernizado -->
-<div class="ribbon">✦ &nbsp; ¡Organiza tu tiempo — el show debe continuar! &nbsp; ✦</div>
-
-<!-- EVENTOS -->
-<section class="section" data-aos="fade-up">
-    <h2 class="section-title">Programación del Gran Show</h2>
-    <p class="section-sub">Dos actos que no te puedes perder</p>
-
-    <!-- Acto Académico -->
-    <button class="evento-btn" onclick="mostrarPagina('acto-academico')">
-        <div class="evento-icono" style="background:linear-gradient(135deg, var(--azul), var(--morado)); color:white;">
-            <i class="fas fa-graduation-cap"></i>
+    <!-- PANEL 1: Actos (tarjetas de eventos) -->
+    <div class="panel active" id="panel-actos">
+      <div class="menu-grid">
+        <!-- Acto Académico -->
+        <div class="event-card" onclick="mostrarPagina('acto-academico')">
+          <div class="card-header">
+            <span>🎓 Acto Académico</span>
+            <span class="time-tag">8:00 a.m.</span>
+          </div>
+          <div class="card-body">
+            <div class="event-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="event-title">Ceremonia de Logros</div>
+            <div class="event-desc">Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes.</div>
+            <div class="btn-card">Ver detalles <i class="fas fa-arrow-right"></i></div>
+          </div>
         </div>
-        <div class="evento-contenido">
-            <h3>Acto Académico</h3>
-            <p class="evento-hora" style="color:var(--azul);">8:00 a.m.</p>
-            <p class="evento-desc">Toca para ver detalles del acto ✨</p>
+        <!-- Festival Primaria -->
+        <div class="event-card" onclick="mostrarPagina('festival-primaria')">
+          <div class="card-header">
+            <span>🎭 Festival Primaria</span>
+            <span class="time-tag">2:30 p.m.</span>
+          </div>
+          <div class="card-body">
+            <div class="event-icon"><i class="fas fa-mask"></i></div>
+            <div class="event-title">Gran Show Artístico</div>
+            <div class="event-desc">Los alumnos de primaria brillarán con baile, música, actuación y mucho talento. ¡Un espectáculo vibrante!</div>
+            <div class="btn-card">Ver detalles <i class="fas fa-arrow-right"></i></div>
+          </div>
         </div>
-    </button>
+        <!-- Lugar extra card -->
+        <div class="event-card" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
+          <div class="card-header">
+            <span>📍 Lugar del Evento</span>
+            <span class="time-tag">Mapa interactivo</span>
+          </div>
+          <div class="card-body">
+            <div class="event-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="event-title">Centro de Desarrollo Comunitario #25</div>
+            <div class="event-desc">Toca para abrir en Google Maps y obtener indicaciones precisas.</div>
+            <div class="btn-card">Abrir mapa <i class="fas fa-external-link-alt"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Festival Primaria -->
-    <button class="evento-btn" onclick="mostrarPagina('festival-primaria')">
-        <div class="evento-icono" style="background:linear-gradient(135deg, var(--naranja), var(--dorado)); color:white;">
-            <i class="fas fa-theater-masks"></i>
+    <!-- PANEL 2: Acceso (steps modernos) -->
+    <div class="panel" id="panel-acceso">
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Recibe tus boletos</h3>
+            <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--naranja);">$100 pesos</strong>.</p>
+          </div>
         </div>
-        <div class="evento-contenido">
-            <h3>Festival Primaria</h3>
-            <p class="evento-hora" style="color:var(--naranja);">2:30 p.m.</p>
-            <p class="evento-desc">Toca para ver detalles del festival 🎭</p>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Guarda tus boletos</h3>
+            <p>Consérvalos y llévalos el día del evento.</p>
+          </div>
         </div>
-    </button>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Preséntalo en la entrada</h3>
+            <p>Muestra tu boleto en la entrada para ingresar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Ubicación -->
-    <button class="evento-btn" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
-        <div class="evento-icono" style="background:linear-gradient(135deg, var(--morado), var(--azul)); color:white;">
-            <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div class="evento-contenido">
-            <h3>Lugar del Evento</h3>
-            <p class="evento-hora" style="color:var(--morado);">Ver en Google Maps</p>
-            <p class="evento-desc">Toca para abrir la ubicación 📍</p>
-        </div>
-    </button>
-
-    <!-- Mapa -->
-    <div class="mapa-wrap" data-aos="fade-up" data-aos-delay="100">
+    <!-- PANEL 3: Mapa -->
+    <div class="panel" id="panel-mapa">
+      <div class="mapa-wrap">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.715061767188!2d-103.3848689242246!3d20.67378198087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3a95d7589d%3A0x528de490c092c4f1!2sCentro%20de%20Desarrollo%20Comunitario%20%2325%20DIF%20Guadalajara!5e0!3m2!1ses-419!2smx!4v1718331230848!5m2!1ses-419!2smx"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-
-    <div style="text-align:center; margin-top:14px;">
-        <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-map" style="text-decoration:none;">
-            <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.715061767188!2d-103.3848689242246!3d20.67378198087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3a95d7589d%3A0x528de490c092c4f1!2sCentro%20de%20Desarrollo%20Comunitario%20%2325%20DIF%20Guadalajara!5e0!3m2!1ses-419!2smx!4v1718331230848!5m2!1ses-419!2smx"
+          allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div style="text-align:center; margin-top: 20px;">
+        <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-modern">
+          <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
         </a>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- ACCESO -->
-<section class="section" data-aos="fade-up" style="padding-top:0;">
-    <div class="sep"><div class="sep-line"></div><span>🎟</span><div class="sep-line"></div></div>
-    <h2 class="section-title">Acceso al Festival</h2>
-    <p class="section-sub">Información para ingresar al evento</p>
-
-    <div class="steps-grid">
-        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="step-num">1</div>
-            <div>
-                <h3>Recibe tus boletos</h3>
-                <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--naranja);">$100 pesos</strong>.</p>
-            </div>
-        </div>
-        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="step-num">2</div>
-            <div>
-                <h3>Guarda tus boletos</h3>
-                <p>Consérvalos y llévalos el día del evento.</p>
-            </div>
-        </div>
-        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="step-num">3</div>
-            <div>
-                <h3>Preséntalo en la entrada</h3>
-                <p>Muestra tu boleto en la entrada para ingresar.</p>
-            </div>
-        </div>
+  <!-- Sección Síguenos (contacto) -->
+  <section class="nutricion" style="margin-top: 20px;">
+    <h2><i class="fas fa-heart"></i> Síguenos en redes</h2>
+    <p>Más información, actualizaciones y sorpresas del festival</p>
+    <div class="contact-grid" style="margin-top: 18px;">
+      <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://chatwith.io/es/s/63b7348567162" target="_blank" class="contact-link cl-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://www.instagram.com/colegiotlahtoanii/" target="_blank" class="contact-link cl-ig"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://colegiotlahtoani.com/" target="_blank" class="contact-link cl-web"><i class="fas fa-globe"></i> Web Oficial</a>
     </div>
-</section>
+  </section>
 
-<!-- CONTACTO -->
-<section class="section" data-aos="fade-up" style="padding-top:0;">
-    <div class="sep"><div class="sep-line"></div><span>🎪</span><div class="sep-line"></div></div>
-    <h2 class="section-title">Síguenos</h2>
-    <p class="section-sub">Encuentra más información en nuestras redes</p>
-
-    <div class="contact-grid">
-        <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb">
-            <i class="fab fa-facebook-f"></i> Facebook
-        </a>
-        <a href="https://chatwith.io/es/s/63b7348567162" target="_blank" class="contact-link cl-wa">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/colegiotlahtoanii/" target="_blank" class="contact-link cl-ig">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        <a href="https://colegiotlahtoani.com/" target="_blank" class="contact-link cl-web">
-            <i class="fas fa-globe"></i> Página Web
-        </a>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-    <div class="sep" style="max-width:280px; margin: 0 auto 16px;">
-        <div class="sep-line"></div>
-        <span style="font-size:1rem;">🎩</span>
-        <div class="sep-line"></div>
-    </div>
+  <footer>
     <p>Colegio Tlahtoani · Festival Fin de Ciclo 2025</p>
-    <p style="margin-top:6px;">¡Los esperamos con todo el corazón! 🎪✨</p>
-</footer>
+    <p style="margin-top: 5px;">🎪 ¡Los esperamos con todo el corazón! El show debe continuar ✨</p>
+  </footer>
+</div>
 
-<!-- ══ PÁGINAS DE EVENTO ══ -->
-
-<!-- Acto Académico -->
+<!-- MODALES (páginas de evento) -->
 <div id="pagina-acto-academico" class="pagina-evento">
-    <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
-    <div class="pag-inner">
-        <h2 class="pag-titulo">Acto Académico</h2>
-        <p class="pag-hora">✨ 8:00 a.m.</p>
-        <img src="acto.jpg" alt="Acto Académico" class="pag-img" onerror="this.style.display='none'">
-        <div class="pag-destacado">
-            🎓 <strong>Acto Académico · 8:00 a.m.</strong><br><br>
-            Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar. ¡Acompáñanos en este momento tan especial para toda la comunidad Tlahtoani!
-        </div>
+  <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
+  <div class="pag-inner">
+    <h2 class="pag-titulo">Acto Académico</h2>
+    <p class="pag-hora">✨ 8:00 a.m.</p>
+    <div class="pag-destacado">
+      🎓 <strong>Acto Académico · 8:00 a.m.</strong><br><br>
+      Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar. ¡Acompáñanos en este momento tan especial para toda la comunidad Tlahtoani!
     </div>
+  </div>
 </div>
 
-<!-- Festival Primaria -->
 <div id="pagina-festival-primaria" class="pagina-evento">
-    <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
-    <div class="pag-inner">
-        <h2 class="pag-titulo">Festival Primaria</h2>
-        <p class="pag-hora">🎭 2:30 p.m.</p>
-        <img src="festival.jpg" alt="Festival Primaria" class="pag-img" onerror="this.style.display='none'">
-        <div class="pag-destacado">
-            🎪 <strong>Festival Primaria · 2:30 p.m.</strong><br><br>
-            ¡El escenario se convierte en un Gran Show! Los alumnos de primaria brillarán con sus presentaciones artísticas: baile, música, actuación y mucho talento. Un espectáculo vibrante para cerrar el ciclo escolar con todo lo que tenemos dentro. ¡Que el show continúe!
-        </div>
+  <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
+  <div class="pag-inner">
+    <h2 class="pag-titulo">Festival Primaria</h2>
+    <p class="pag-hora">🎭 2:30 p.m.</p>
+    <div class="pag-destacado">
+      🎪 <strong>Festival Primaria · 2:30 p.m.</strong><br><br>
+      ¡El escenario se convierte en un Gran Show! Los alumnos de primaria brillarán con sus presentaciones artísticas: baile, música, actuación y mucho talento. Un espectáculo vibrante para cerrar el ciclo escolar con todo lo que tenemos dentro. ¡Que el show continúe!
     </div>
+  </div>
 </div>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
-    AOS.init({ once: true, duration: 750, easing: 'ease-out-back' });
+  AOS.init({ once: true, duration: 600 });
 
-    window.addEventListener('load', () => {
-        confetti({
-            particleCount: 120,
-            spread: 70,
-            origin: { y: 0.55 },
-            colors: ['#FFD166','#FFE8A0','#3A86FF','#8338EC','#FF6B35']
-        });
+  // Confetti inicial
+  window.addEventListener('load', () => {
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#0a84ff', '#7c3aed', '#ff9f0a', '#ffd166'] });
+  });
+
+  // Tabs (funcionalidad igual al diseño de referencia)
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-panel');
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      panels.forEach(p => p.classList.remove('active'));
+      document.getElementById(target).classList.add('active');
     });
+  });
 
-    (function(){
-        const wrap = document.getElementById('confetti');
-        const colors = ['#FFD166','#3A86FF','#8338EC','#FF6B35','#FFFFFF'];
-        for(let i=0; i<50; i++){
-            const d = document.createElement('div');
-            d.className = 'cdot';
-            const s = Math.random()*7+4;
-            d.style.cssText = `
-                width:${s}px; height:${s}px;
-                left:${Math.random()*100}vw;
-                background:${colors[Math.floor(Math.random()*colors.length)]};
-                animation-duration:${Math.random()*7+6}s;
-                animation-delay:${Math.random()*8}s;
-            `;
-            wrap.appendChild(d);
-        }
-    })();
-
-    function mostrarPagina(id) {
-        document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
-        const el = document.getElementById('pagina-' + id);
-        if(el){ el.style.display = 'block'; window.scrollTo(0,0); }
-    }
-    function ocultarPaginas() {
-        document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
-    }
+  // Funciones para páginas de evento
+  function mostrarPagina(id) {
+    document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
+    const el = document.getElementById('pagina-' + id);
+    if (el) { el.style.display = 'block'; document.body.style.overflow = 'hidden'; window.scrollTo(0,0); }
+  }
+  function ocultarPaginas() {
+    document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
+    document.body.style.overflow = 'auto';
+  }
 </script>
 </body>
 </html>
