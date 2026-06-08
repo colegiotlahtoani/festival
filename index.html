@@ -3,9 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Festival Fin de Ciclo | Colegio Tlahtoani – El Gran Show</title>
+<title>Colegio Tlahtoani – Festival Fin de Ciclo "El Gran Show"</title>
 
-<!-- Fuentes modernas -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
@@ -13,526 +12,416 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
 
 <style>
-:root {
-  --bg: #f5f7fb;
-  --text: #111827;
-  --muted: #6b7280;
-  
-  --azul: #0a84ff;
-  --morado: #7c3aed;
-  --naranja: #ff9f0a;
-  --dorado: #ffd166;
-  --verde: #34c759;
-  --lime: #b7ff00;
-  
-  --shadow: 0 16px 40px rgba(0,0,0,.10);
-  --radius-xl: 26px;
-  --radius-lg: 18px;
+:root{
+  --bg:#f5f7fb;
+  --text:#111827;
+  --muted:#6b7280;
+
+  --blue:#0a84ff;
+  --purple:#7c3aed;
+  --green:#34c759;
+  --lime:#b7ff00;
+  --orange:#ff9f0a;
+  --yellow:#ffd166;
+
+  --shadow:0 16px 40px rgba(0,0,0,.10);
+  --radius-xl:26px;
+  --radius-lg:18px;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0;}
 
-body {
-  font-family: 'Inter', sans-serif;
+body{
+  font-family:Inter,sans-serif;
   background:
-    radial-gradient(500px 300px at 10% 10%, rgba(10,132,255,.12), transparent 60%),
-    radial-gradient(450px 280px at 90% 15%, rgba(124,58,237,.15), transparent 60%),
-    radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.12), transparent 60%),
+    radial-gradient(500px 300px at 10% 10%, rgba(10,132,255,.15), transparent 60%),
+    radial-gradient(450px 280px at 90% 15%, rgba(124,58,237,.18), transparent 60%),
+    radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.15), transparent 60%),
     var(--bg);
-  color: var(--text);
+  color:var(--text);
 }
 
-.container {
-  width: min(1100px, calc(100% - 24px));
-  margin: auto;
-  padding: 14px 0 22px;
+.container{
+  width:min(1100px,calc(100% - 24px));
+  margin:auto;
+  padding:14px 0 22px;
 }
 
-/* Topbar moderna */
-.topbar {
-  position: sticky;
-  top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  border-radius: var(--radius-xl);
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow);
-  z-index: 10;
+.topbar{
+  position:sticky;
+  top:10px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border-radius:var(--radius-xl);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:var(--shadow);
+  z-index:10;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
+.brand{display:flex;align-items:center;gap:10px;min-width:0;}
+
+.logo-box{
+  width:50px;height:50px;
+  border-radius:16px;
+  background:white;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  flex:0 0 auto;
+}
+.logo-box img{width:78%;object-fit:contain;}
+
+.school{font-weight:900;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.subtitle{font-size:.85rem;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+.hero{
+  margin-top:14px;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffffff,#fff5e6);
+  box-shadow:var(--shadow);
 }
 
-.logo-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
-  background: white;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  box-shadow: 0 6px 14px rgba(0,0,0,.12);
-  flex: 0 0 auto;
-}
-.logo-box img { width: 78%; }
+.hero-inner{padding:20px;display:grid;gap:14px;}
 
-.school {
-  font-weight: 900;
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.subtitle {
-  font-size: .85rem;
-  color: var(--muted);
-  font-weight: 600;
+.hero-title h1{
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:900;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-/* Hero tipo festival */
-.hero {
-  margin-top: 20px;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: linear-gradient(135deg, #ffffff, #fff5e6);
-  box-shadow: var(--shadow);
+.badge{
+  display:inline-block;
+  margin-top:8px;
+  padding:8px 18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  color:white;
+  font-weight:800;
+  font-size:.85rem;
+  letter-spacing:1px;
+  box-shadow:0 4px 12px rgba(10,132,255,.3);
 }
 
-.hero-inner {
-  padding: 24px 20px;
-  display: grid;
-  gap: 16px;
+.date-info{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.date-badge{
+  background:rgba(255,159,10,.12);
+  padding:6px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.85rem;
+  color:var(--orange);
 }
 
-.hero-title h1 {
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  background: linear-gradient(90deg, var(--azul), var(--morado), var(--naranja));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 10px;
+.cover{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+.cover img{width:100%;height:210px;object-fit:cover;display:block;}
+
+.section{margin-top:28px;}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  padding:0 6px;
+  margin-bottom:16px;
+}
+.section-head h2{
+  font-size:1.2rem;
+  font-weight:900;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.hero-tag {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--morado), var(--azul));
-  color: white;
-  font-weight: 800;
-  font-size: .85rem;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 12px rgba(124,58,237,.3);
+.menu-grid{display:grid;gap:20px;}
+@media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
+
+.day-card{
+  background:white;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+  cursor:pointer;
+}
+.day-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 24px 48px rgba(0,0,0,.12);
 }
 
-.date-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  font-weight: 800;
-  color: var(--naranja);
-  background: rgba(255,159,10,.12);
-  padding: 8px 16px;
-  border-radius: 999px;
-  width: fit-content;
+.day-top{
+  padding:14px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  color:white;
+  font-weight:900;
+  font-size:1rem;
 }
 
-.cover {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.cover img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
+.mini-tag{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(4px);
+  color:white;
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
 }
 
-/* Secciones */
-.section {
-  margin-top: 28px;
+.content{padding:18px;display:grid;gap:14px;}
+
+.block{
+  background:var(--bg);
+  border-radius:20px;
+  padding:14px;
+  transition:background 0.2s;
 }
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0 6px;
-  margin-bottom: 16px;
-}
-.section-head h2 {
-  font-size: 1.3rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--azul), var(--morado));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.block:hover{background:#f0f3f9;}
+
+.block-title{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  font-weight:900;
+  font-size:.95rem;
 }
 
-/* TABS modernos (igual al diseño de referencia) */
-.tabs {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 2px 6px;
-  margin-bottom: 20px;
-}
-.tab {
-  flex: 1;
-  text-align: center;
-  padding: 12px 8px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.92);
-  font-weight: 800;
-  cursor: pointer;
-  white-space: normal;
-  line-height: 1.2;
-  box-shadow: 0 6px 14px rgba(0,0,0,.08);
-  border: 1px solid rgba(17,24,39,.10);
-  transition: all 0.2s ease;
-  font-size: 0.9rem;
-}
-.tab:active { transform: scale(0.97); }
-.tab.active {
-  background: linear-gradient(90deg, var(--azul), var(--morado));
-  color: white;
-  border: none;
+.pill{
+  background:linear-gradient(90deg,var(--green),var(--lime));
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
+  color:#1a3a0a;
 }
 
-.panel { display: none; }
-.panel.active { display: block; animation: fadeIn 0.35s ease; }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.item{
+  display:flex;
+  gap:10px;
+  font-size:.9rem;
+  color:#374151;
+  font-weight:600;
+  margin-bottom:8px;
+  align-items:flex-start;
 }
 
-/* Grid de tarjetas (cards modernas) */
-.menu-grid {
-  display: grid;
-  gap: 20px;
-}
-@media (min-width: 640px) {
-  .menu-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 960px) {
-  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+.bullet{
+  width:8px;height:8px;
+  background:var(--orange);
+  border-radius:50%;
+  margin-top:6px;
+  flex-shrink:0;
 }
 
-/* Tarjeta de evento estilo premium */
-.event-card {
-  background: white;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  cursor: pointer;
+.btn-detail{
+  margin-top:8px;
+  background:white;
+  border:none;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.75rem;
+  color:var(--blue);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+  transition:0.2s;
+  width:fit-content;
 }
-.event-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0,0,0,.15);
-}
-
-.card-header {
-  background: linear-gradient(90deg, var(--azul), var(--morado));
-  padding: 14px 16px;
-  color: white;
-  font-weight: 800;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card-header span:first-child {
-  font-size: 1rem;
-}
-.time-tag {
-  background: rgba(255,255,255,0.25);
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
+.btn-detail:hover{
+  background:var(--blue);
+  color:white;
+  gap:10px;
 }
 
-.card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.mapa-wrap{
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  margin:20px 0;
+  height:280px;
+  box-shadow:var(--shadow);
 }
-.event-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--lime), var(--verde));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #1a2a0a;
-  margin-bottom: 6px;
+.mapa-wrap iframe{width:100%;height:100%;border:none;}
+
+.btn-modern{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  color:white;
+  padding:12px 28px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+  transition:0.2s;
+  box-shadow:0 8px 20px rgba(10,132,255,.3);
+  border:none;
+  cursor:pointer;
 }
-.event-title {
-  font-size: 1.3rem;
-  font-weight: 900;
-  color: var(--text);
-}
-.event-desc {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-.btn-card {
-  margin-top: 8px;
-  background: var(--bg);
-  border: none;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--azul);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-  width: fit-content;
-}
-.btn-card:hover {
-  background: var(--azul);
-  color: white;
-  gap: 12px;
+.btn-modern:hover{
+  transform:translateY(-3px);
+  gap:14px;
+  box-shadow:0 15px 30px rgba(10,132,255,.4);
 }
 
-/* Tarjetas de acceso (steps) */
-.steps-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+.steps-grid{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
 }
-.step-card {
-  background: white;
-  border-radius: var(--radius-xl);
-  padding: 20px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  box-shadow: var(--shadow);
-  transition: all 0.25s ease;
-  border: 1px solid rgba(0,0,0,0.03);
+.step-card{
+  background:white;
+  border-radius:var(--radius-xl);
+  padding:20px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  box-shadow:var(--shadow);
+  transition:0.2s;
 }
-.step-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+.step-card:hover{transform:translateX(6px);}
+.step-num{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--orange),var(--yellow));
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:1.2rem;
+  flex-shrink:0;
+  color:#2d1a00;
 }
-.step-num {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, var(--naranja), var(--dorado));
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1.3rem;
-  color: #2d1a00;
-  flex-shrink: 0;
+.step-card h3{font-size:1rem;font-weight:800;margin-bottom:4px;}
+.step-card p{color:var(--muted);font-size:.85rem;}
+@media(min-width:640px){.steps-grid{flex-direction:row;}.step-card{flex:1;}}
+
+.contact-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  justify-content:center;
+  margin-top:16px;
 }
-.step-card h3 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 5px;
+.contact-link{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  color:white;
+  transition:0.2s;
+  box-shadow:0 6px 14px rgba(0,0,0,.1);
 }
-.step-card p {
-  color: var(--muted);
-  font-size: 0.9rem;
+.contact-link:hover{transform:translateY(-3px);filter:brightness(1.05);}
+.cl-fb{background:#1877F2;}
+.cl-wa{background:#25D366;}
+.cl-ig{background:linear-gradient(45deg,#405DE6,#C13584,#FD1D1D);}
+.cl-web{background:linear-gradient(90deg,var(--blue),var(--purple));}
+
+.nutricion{
+  margin-top:28px;
+  background:linear-gradient(135deg,#ffffff,#f0f4ff);
+  border-radius:var(--radius-xl);
+  padding:22px 20px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.nutricion h2{
+  font-size:1.25rem;
+  font-weight:900;
+  background:linear-gradient(90deg,var(--orange),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.nutricion p{
+  color:var(--muted);
+  font-weight:600;
+  margin-top:6px;
 }
 
-@media (min-width: 640px) {
-  .steps-grid { flex-direction: row; }
-  .step-card { flex: 1; }
+footer{
+  text-align:center;
+  margin-top:24px;
+  padding:20px 0;
+  font-size:.8rem;
+  color:var(--muted);
+  font-weight:600;
+  border-top:1px solid rgba(0,0,0,.05);
 }
 
-/* Mapa */
-.mapa-wrap {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  margin: 20px 0;
-  height: 300px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,.05);
+.pagina-evento{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:var(--bg);
+  z-index:1000;
+  padding:40px 20px;
+  overflow-y:auto;
 }
-.mapa-wrap iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+.pag-inner{max-width:680px;margin:0 auto;}
+.btn-cerrar{
+  position:fixed;
+  top:20px;right:20px;
+  width:48px;height:48px;
+  background:var(--blue);
+  color:white;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:1.5rem;
+  box-shadow:var(--shadow);
+  transition:0.2s;
+  z-index:1001;
 }
-
-/* Botón moderno */
-.btn-modern {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(90deg, var(--azul), var(--morado));
-  color: white;
-  padding: 12px 28px;
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 8px 20px rgba(10,132,255,.3);
-  border: none;
-  cursor: pointer;
+.btn-cerrar:hover{transform:scale(1.1);background:var(--orange);}
+.pag-titulo{
+  font-size:2rem;
+  font-weight:900;
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin:30px 0 10px;
 }
-.btn-modern:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(10,132,255,.4);
-  gap: 14px;
-}
-
-.contact-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
-  margin-top: 10px;
-}
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  color: white;
-  transition: 0.2s;
-  box-shadow: 0 6px 14px rgba(0,0,0,.1);
-}
-.contact-link:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.05);
-}
-.cl-fb { background: #1877F2; }
-.cl-wa { background: #25D366; }
-.cl-ig { background: linear-gradient(45deg, #405DE6, #C13584, #FD1D1D); }
-.cl-web { background: linear-gradient(90deg, var(--azul), var(--morado)); }
-
-/* Nutrición (ahora sección "Espíritu de festival") */
-.nutricion {
-  margin-top: 28px;
-  background: linear-gradient(135deg, #ffffff, #f0f4ff);
-  border-radius: var(--radius-xl);
-  padding: 24px 20px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-.nutricion h2 {
-  font-size: 1.3rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--naranja), var(--azul));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.nutricion p {
-  color: var(--muted);
-  font-weight: 600;
-  margin-top: 8px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px 0;
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-weight: 600;
-  border-top: 1px solid rgba(0,0,0,.05);
-}
-
-/* Modal estilo página evento */
-.pagina-evento {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 1000;
-  padding: 40px 20px;
-  overflow-y: auto;
-}
-.pag-inner {
-  max-width: 680px;
-  margin: 0 auto;
-}
-.btn-cerrar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--azul);
-  color: white;
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.5rem;
-  box-shadow: var(--shadow);
-  transition: 0.2s;
-  z-index: 1001;
-}
-.btn-cerrar:hover {
-  transform: scale(1.1);
-  background: var(--naranja);
-}
-.pag-titulo {
-  font-size: 2rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, var(--azul), var(--morado));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin: 30px 0 10px;
-}
-.pag-hora {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--naranja);
-  margin-bottom: 20px;
-}
-.pag-destacado {
-  background: white;
-  border-radius: var(--radius-xl);
-  padding: 28px;
-  box-shadow: var(--shadow);
-  font-size: 1rem;
-  line-height: 1.6;
-  border-left: 5px solid var(--naranja);
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .tab { font-size: 0.75rem; padding: 10px 5px; }
-  .hero-inner { padding: 18px; }
-  .cover img { height: 180px; }
+.pag-hora{font-size:1.3rem;font-weight:800;color:var(--orange);margin-bottom:20px;}
+.pag-destacado{
+  background:white;
+  border-radius:var(--radius-xl);
+  padding:28px;
+  box-shadow:var(--shadow);
+  line-height:1.6;
+  border-left:5px solid var(--orange);
 }
 </style>
 </head>
-<body>
 
+<body>
 <div class="container">
-  <!-- Topbar -->
+
   <div class="topbar">
     <div class="brand">
       <div class="logo-box">
@@ -540,131 +429,129 @@ footer {
       </div>
       <div>
         <div class="school">Colegio Tlahtoani</div>
-        <div class="subtitle">Festival Fin de Ciclo</div>
+        <div class="subtitle">Festival Fin de Ciclo – El Gran Show</div>
       </div>
     </div>
   </div>
 
-  <!-- Hero principal -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-title">
         <h1>El Gran Show</h1>
-        <div class="hero-tag">✦ Festival de Fin de Ciclo ✦</div>
-        <div class="date-badge">
-          <i class="fas fa-calendar-alt"></i> 25 de Junio · Centro de Desarrollo Comunitario #25
+        <div class="badge">🎪 Festival de Fin de Ciclo 🎭</div>
+        <div class="date-info">
+          <span class="date-badge"><i class="fas fa-calendar-alt"></i> 25 de Junio</span>
+          <span class="date-badge"><i class="fas fa-map-marker-alt"></i> Centro de Desarrollo Comunitario #25</span>
         </div>
       </div>
       <div class="cover">
-        <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show">
+        <img src="https://i.pinimg.com/originals/23/e2/8f/23e28f5f767a614f93bfb1fc1e3d2fc4.jpg" alt="El Gran Show Festival">
       </div>
     </div>
   </section>
 
-  <!-- Programación (tabs + cards) -->
   <section class="section">
     <div class="section-head">
-      <h2><i class="fas fa-ticket-alt"></i> Programa del Festival</h2>
+      <h2>🎟️ Programa del Festival</h2>
     </div>
 
-    <div class="tabs">
-      <div class="tab active" data-panel="panel-actos">Actos Especiales</div>
-      <div class="tab" data-panel="panel-acceso">Acceso & Info</div>
-      <div class="tab" data-panel="panel-mapa">Ubicación</div>
-    </div>
-
-    <!-- PANEL 1: Actos (tarjetas de eventos) -->
-    <div class="panel active" id="panel-actos">
-      <div class="menu-grid">
-        <!-- Acto Académico -->
-        <div class="event-card" onclick="mostrarPagina('acto-academico')">
-          <div class="card-header">
-            <span>🎓 Acto Académico</span>
-            <span class="time-tag">8:00 a.m.</span>
-          </div>
-          <div class="card-body">
-            <div class="event-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="event-title">Ceremonia de Logros</div>
-            <div class="event-desc">Un momento lleno de orgullo y emoción donde celebramos el esfuerzo y los logros de nuestros estudiantes.</div>
-            <div class="btn-card">Ver detalles <i class="fas fa-arrow-right"></i></div>
-          </div>
-        </div>
-        <!-- Festival Primaria -->
-        <div class="event-card" onclick="mostrarPagina('festival-primaria')">
-          <div class="card-header">
-            <span>🎭 Festival Primaria</span>
-            <span class="time-tag">2:30 p.m.</span>
-          </div>
-          <div class="card-body">
-            <div class="event-icon"><i class="fas fa-mask"></i></div>
-            <div class="event-title">Gran Show Artístico</div>
-            <div class="event-desc">Los alumnos de primaria brillarán con baile, música, actuación y mucho talento. ¡Un espectáculo vibrante!</div>
-            <div class="btn-card">Ver detalles <i class="fas fa-arrow-right"></i></div>
-          </div>
-        </div>
-        <!-- Lugar extra card -->
-        <div class="event-card" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
-          <div class="card-header">
-            <span>📍 Lugar del Evento</span>
-            <span class="time-tag">Mapa interactivo</span>
-          </div>
-          <div class="card-body">
-            <div class="event-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="event-title">Centro de Desarrollo Comunitario #25</div>
-            <div class="event-desc">Toca para abrir en Google Maps y obtener indicaciones precisas.</div>
-            <div class="btn-card">Abrir mapa <i class="fas fa-external-link-alt"></i></div>
+    <div class="menu-grid">
+      <!-- Acto Académico -->
+      <div class="day-card" onclick="mostrarPagina('acto-academico')">
+        <div class="day-top">🎓 Acto Académico <span class="mini-tag">8:00 a.m.</span></div>
+        <div class="content">
+          <div class="block">
+            <div class="block-title">Ceremonia de Logros <span class="pill">Especial</span></div>
+            <div class="item"><span class="bullet"></span>Entrega de reconocimientos</div>
+            <div class="item"><span class="bullet"></span>Palabras alusivas</div>
+            <div class="item"><span class="bullet"></span>Momento emotivo familiar</div>
+            <button class="btn-detail">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- PANEL 2: Acceso (steps modernos) -->
-    <div class="panel" id="panel-acceso">
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-num">1</div>
-          <div>
-            <h3>Recibe tus boletos</h3>
-            <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--naranja);">$100 pesos</strong>.</p>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <div>
-            <h3>Guarda tus boletos</h3>
-            <p>Consérvalos y llévalos el día del evento.</p>
-          </div>
-        </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <div>
-            <h3>Preséntalo en la entrada</h3>
-            <p>Muestra tu boleto en la entrada para ingresar.</p>
+      <!-- Festival Primaria -->
+      <div class="day-card" onclick="mostrarPagina('festival-primaria')">
+        <div class="day-top">🎭 Festival Primaria <span class="mini-tag">2:30 p.m.</span></div>
+        <div class="content">
+          <div class="block">
+            <div class="block-title">Espectáculo Artístico <span class="pill">Gran Show</span></div>
+            <div class="item"><span class="bullet"></span>Presentaciones de danza</div>
+            <div class="item"><span class="bullet"></span>Números musicales</div>
+            <div class="item"><span class="bullet"></span>Teatro y actuación</div>
+            <button class="btn-detail">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- PANEL 3: Mapa -->
-    <div class="panel" id="panel-mapa">
-      <div class="mapa-wrap">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.715061767188!2d-103.3848689242246!3d20.67378198087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3a95d7589d%3A0x528de490c092c4f1!2sCentro%20de%20Desarrollo%20Comunitario%20%2325%20DIF%20Guadalajara!5e0!3m2!1ses-419!2smx!4v1718331230848!5m2!1ses-419!2smx"
-          allowfullscreen="" loading="lazy"></iframe>
-      </div>
-      <div style="text-align:center; margin-top: 20px;">
-        <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-modern">
-          <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
-        </a>
+      <!-- Ubicación / Mapa -->
+      <div class="day-card" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
+        <div class="day-top">📍 Ubicación <span class="mini-tag">Mapa</span></div>
+        <div class="content">
+          <div class="block">
+            <div class="block-title">Cómo llegar <span class="pill">Google Maps</span></div>
+            <div class="item"><span class="bullet"></span>Centro de Desarrollo Comunitario #25</div>
+            <div class="item"><span class="bullet"></span>Estacionamiento disponible</div>
+            <div class="item"><span class="bullet"></span>Acceso para familias</div>
+            <button class="btn-detail">Abrir mapa <i class="fas fa-external-link-alt"></i></button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección Síguenos (contacto) -->
-  <section class="nutricion" style="margin-top: 20px;">
+  <!-- Acceso al Festival (steps) -->
+  <section class="section">
+    <div class="section-head">
+      <h2>🎟️ Acceso al Festival</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Recibe tus boletos</h3>
+          <p>Serán entregados en el colegio. Boleto extra: <strong style="color:var(--orange);">$100 pesos</strong>.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Guarda tus boletos</h3>
+          <p>Consérvalos y llévalos el día del evento.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Preséntalo en la entrada</h3>
+          <p>Muestra tu boleto en la entrada para ingresar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mapa embebido -->
+  <section class="section">
+    <div class="section-head">
+      <h2>🗺️ Ubicación en vivo</h2>
+    </div>
+    <div class="mapa-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.715061767188!2d-103.3848689242246!3d20.67378198087636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae3a95d7589d%3A0x528de490c092c4f1!2sCentro%20de%20Desarrollo%20Comunitario%20%2325%20DIF%20Guadalajara!5e0!3m2!1ses-419!2smx!4v1718331230848!5m2!1ses-419!2smx"
+        allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div style="text-align:center; margin-top:12px;">
+      <a href="https://share.google/SUD0Vc7u4qRfvQsiN" target="_blank" class="btn-modern">
+        <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
+      </a>
+    </div>
+  </section>
+
+  <!-- Redes sociales -->
+  <section class="nutricion">
     <h2><i class="fas fa-heart"></i> Síguenos en redes</h2>
-    <p>Más información, actualizaciones y sorpresas del festival</p>
-    <div class="contact-grid" style="margin-top: 18px;">
+    <p>Más información, sorpresas y momentos del festival</p>
+    <div class="contact-grid">
       <a href="http://facebook.com/profile.php?id=100068328885670&mibextid=LQQJ4d" target="_blank" class="contact-link cl-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
       <a href="https://chatwith.io/es/s/63b7348567162" target="_blank" class="contact-link cl-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       <a href="https://www.instagram.com/colegiotlahtoanii/" target="_blank" class="contact-link cl-ig"><i class="fab fa-instagram"></i> Instagram</a>
@@ -674,11 +561,11 @@ footer {
 
   <footer>
     <p>Colegio Tlahtoani · Festival Fin de Ciclo 2025</p>
-    <p style="margin-top: 5px;">🎪 ¡Los esperamos con todo el corazón! El show debe continuar ✨</p>
+    <p style="margin-top:6px;">🎪 ¡Los esperamos con todo el corazón! El show debe continuar ✨</p>
   </footer>
 </div>
 
-<!-- MODALES (páginas de evento) -->
+<!-- Modales de eventos -->
 <div id="pagina-acto-academico" class="pagina-evento">
   <div class="btn-cerrar" onclick="ocultarPaginas()">×</div>
   <div class="pag-inner">
@@ -707,30 +594,15 @@ footer {
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
   AOS.init({ once: true, duration: 600 });
-
-  // Confetti inicial
+  
   window.addEventListener('load', () => {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors: ['#0a84ff', '#7c3aed', '#ff9f0a', '#ffd166'] });
+    confetti({ particleCount: 100, spread: 70, origin: { y: 0.55 }, colors: ['#0a84ff', '#7c3aed', '#ff9f0a', '#ffd166'] });
   });
 
-  // Tabs (funcionalidad igual al diseño de referencia)
-  const tabs = document.querySelectorAll('.tab');
-  const panels = document.querySelectorAll('.panel');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-panel');
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      panels.forEach(p => p.classList.remove('active'));
-      document.getElementById(target).classList.add('active');
-    });
-  });
-
-  // Funciones para páginas de evento
   function mostrarPagina(id) {
     document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
     const el = document.getElementById('pagina-' + id);
-    if (el) { el.style.display = 'block'; document.body.style.overflow = 'hidden'; window.scrollTo(0,0); }
+    if(el) { el.style.display = 'block'; document.body.style.overflow = 'hidden'; window.scrollTo(0,0); }
   }
   function ocultarPaginas() {
     document.querySelectorAll('.pagina-evento').forEach(p => p.style.display = 'none');
