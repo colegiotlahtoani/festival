@@ -383,7 +383,7 @@ footer{
   border-top:1px solid rgba(0,0,0,.05);
 }
 
-/* ===== PÁGINAS DE EVENTO MEJORADAS ===== */
+/* PÁGINAS DE EVENTO MEJORADAS */
 .pagina-evento{
   display:none;
   position:fixed;
@@ -517,12 +517,12 @@ footer{
     </div>
 
     <div class="menu-grid">
-      <!-- Acto Académico -->
+      <!-- Acto Académico Primaria -->
       <div class="day-card" onclick="mostrarPagina('acto-academico')">
-        <div class="day-top">🎓 Acto Académico <span class="mini-tag">8:00 a.m.</span></div>
+        <div class="day-top">🎓 Acto Académico <span class="mini-tag">Primaria</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Ceremonia de Logros <span class="pill">Especial</span></div>
+            <div class="block-title">Ceremonia de Logros <span class="pill">8:00 a.m.</span></div>
             <div class="item"><span class="bullet"></span>Entrega de reconocimientos</div>
             <div class="item"><span class="bullet"></span>Palabras alusivas</div>
             <div class="item"><span class="bullet"></span>Momento emotivo familiar</div>
@@ -531,12 +531,26 @@ footer{
         </div>
       </div>
 
-      <!-- Festival Primaria -->
-      <div class="day-card" onclick="mostrarPagina('festival-primaria')">
-        <div class="day-top">🎭 Festival Primaria <span class="mini-tag">2:30 p.m.</span></div>
+      <!-- Acto Académico Kínder -->
+      <div class="day-card" onclick="mostrarPagina('acto-academico-kinder')">
+        <div class="day-top">🎓 Acto Académico <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Espectáculo Artístico <span class="pill">Gran Show</span></div>
+            <div class="block-title">Ceremonia de Logros <span class="pill">9:45 a.m.</span></div>
+            <div class="item"><span class="bullet"></span>Entrega de reconocimientos</div>
+            <div class="item"><span class="bullet"></span>Presentación especial</div>
+            <div class="item"><span class="bullet"></span>Mensaje de despedida</div>
+            <button class="btn-detail">Ver detalles <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Festival Primaria -->
+      <div class="day-card" onclick="mostrarPagina('festival-primaria')">
+        <div class="day-top">🎭 Festival <span class="mini-tag">Primaria</span></div>
+        <div class="content">
+          <div class="block">
+            <div class="block-title">Espectáculo Artístico <span class="pill">2:30 p.m.</span></div>
             <div class="item"><span class="bullet"></span>Presentaciones de danza</div>
             <div class="item"><span class="bullet"></span>Números musicales</div>
             <div class="item"><span class="bullet"></span>Teatro y actuación</div>
@@ -545,15 +559,16 @@ footer{
         </div>
       </div>
 
-      <!-- Ubicación / Mapa -->
-      <div class="day-card" onclick="window.open('https://share.google/SUD0Vc7u4qRfvQsiN','_blank')">
-        <div class="day-top">📍 Ubicación <span class="mini-tag">Mapa</span></div>
+      <!-- Festival Kínder -->
+      <div class="day-card" onclick="mostrarPagina('festival-kinder')">
+        <div class="day-top">🎭 Festival <span class="mini-tag">Kínder</span></div>
         <div class="content">
           <div class="block">
-            <div class="block-title">Cómo llegar <span class="pill">Google Maps</span></div>
-            <div class="item"><span class="bullet"></span>Centro de Desarrollo Comunitario #25</div>
-            <div class="item"><span class="bullet"></span>Acceso para familias</div>
-            <button class="btn-detail">Abrir mapa <i class="fas fa-external-link-alt"></i></button>
+            <div class="block-title">Espectáculo Artístico <span class="pill">12:00 p.m.</span></div>
+            <div class="item"><span class="bullet"></span>Presentaciones divertidas</div>
+            <div class="item"><span class="bullet"></span>Danzas y música</div>
+            <div class="item"><span class="bullet"></span>Participación especial</div>
+            <button class="btn-detail">Ver detalles <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -625,12 +640,12 @@ footer{
   </footer>
 </div>
 
-<!-- PÁGINA DE EVENTO: Acto Académico (MEJORADA) -->
+<!-- PÁGINA: Acto Académico Primaria -->
 <div id="pagina-acto-academico" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎓</div>
     <h2>Acto Académico</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m.</div>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 8:00 a.m. | Primaria</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
@@ -638,7 +653,7 @@ footer{
     </div>
     <div class="pag-content">
       <p><strong>✨ Un momento lleno de orgullo y emoción</strong></p><br>
-      <p>Celebramos el esfuerzo y los logros de nuestros estudiantes. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar.</p><br>
+      <p>Celebramos el esfuerzo y los logros de nuestros estudiantes de primaria. Una etapa que culmina con alegría y la promesa de nuevos caminos por explorar.</p><br>
       <p><strong>🎯 Lo que vivirás:</strong></p>
       <p>• Entrega de reconocimientos a estudiantes destacados</p>
       <p>• Mensajes inspiradores de nuestras autoridades educativas</p>
@@ -650,12 +665,37 @@ footer{
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
 </div>
 
-<!-- PÁGINA DE EVENTO: Festival Primaria (MEJORADA) -->
+<!-- PÁGINA: Acto Académico Kínder -->
+<div id="pagina-acto-academico-kinder" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎓🐻</div>
+    <h2>Acto Académico Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 9:45 a.m. | Kínder</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceremonia Kínder" onerror="this.src='https://via.placeholder.com/800x240?text=Acto+Kínder'">
+    </div>
+    <div class="pag-content">
+      <p><strong>🌟 Un momento mágico para nuestros pequeños</strong></p><br>
+      <p>Celebramos con mucho cariño los logros y el crecimiento de nuestros estudiantes de kínder. Un paso importante en su educación que merece ser festejado en grande.</p><br>
+      <p><strong>🎯 Lo que vivirás:</strong></p>
+      <p>• Entrega de reconocimientos a los pequeños</p>
+      <p>• Presentación especial de los niños</p>
+      <p>• Mensaje de despedida y reflexión</p>
+      <p>• Momento emotivo para las familias</p><br>
+      <p>¡Acompáñanos a celebrar este hermoso logro!</p>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- PÁGINA: Festival Primaria -->
 <div id="pagina-festival-primaria" class="pagina-evento">
   <div class="pag-hero">
     <div class="pag-hero-icon">🎭</div>
     <h2>Festival Primaria</h2>
-    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m.</div>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 2:30 p.m. | Primaria</div>
   </div>
   <div class="pag-body">
     <div class="pag-image">
@@ -671,6 +711,32 @@ footer{
       <p>• Sorpresas y coreografías especiales</p>
       <p>• Participación de todos los grados de primaria</p><br>
       <p>¡Que el show continúe!</p>
+    </div>
+  </div>
+  <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- PÁGINA: Festival Kínder -->
+<div id="pagina-festival-kinder" class="pagina-evento">
+  <div class="pag-hero">
+    <div class="pag-hero-icon">🎪🐼</div>
+    <h2>Festival Kínder</h2>
+    <div class="pag-hero-time"><i class="fas fa-clock"></i> 12:00 p.m. | Kínder</div>
+  </div>
+  <div class="pag-body">
+    <div class="pag-image">
+      <img src="https://images.pexels.com/photos/7128612/pexels-photo-7128612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Festival Kínder" onerror="this.src='https://via.placeholder.com/800x240?text=Festival+Kínder'">
+    </div>
+    <div class="pag-content">
+      <p><strong>🎨 ¡Los más pequeños también brillan!</strong></p><br>
+      <p>Los alumnos de kínder nos deleitarán con presentaciones llenas de ternura, creatividad y mucha alegría. Un espectáculo que robará suspiros y sonrisas.</p><br>
+      <p><strong>🎭 Números especiales:</strong></p>
+      <p>• Danzas divertidas y coloridas</p>
+      <p>• Canciones interpretadas por los niños</p>
+      <p>• Participación grupal con mucha energía</p>
+      <p>• Sorpresas y momentos adorables</p>
+      <p>• Clausura con broche de oro</p><br>
+      <p>¡Ven a ver a los pequeños grandes artistas!</p>
     </div>
   </div>
   <button class="btn-cerrar-modern" onclick="ocultarPaginas()"><i class="fas fa-times"></i></button>
